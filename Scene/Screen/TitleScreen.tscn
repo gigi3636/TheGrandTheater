@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk1lpovyco54d"]
+
+[ext_resource type="Script" path="res://Script/Screen/TilteScreen.cs" id="1_0fy3o"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0fy3o")
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 296.0
+offset_right = 1081.0
+offset_bottom = 603.0
+text = "Play
+"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

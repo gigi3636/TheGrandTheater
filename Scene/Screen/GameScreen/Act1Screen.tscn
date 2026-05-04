@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmmicxnfndi8x"]
+
+[ext_resource type="PackedScene" uid="uid://ddhptnrjjudru" path="res://Scene/Act1Parallax.tscn" id="1_g5asr"]
+[ext_resource type="Script" path="res://Script/PlayScreen/Act1Screen.cs" id="1_xc32l"]
+[ext_resource type="PackedScene" uid="uid://bb61vyimkc6i" path="res://Scene/Player.tscn" id="2_pxtlm"]
+[ext_resource type="Script" path="res://Script/Act1/Act1LevelTimer.cs" id="3_3tooy"]
+[ext_resource type="Resource" uid="uid://bhilqi54wd3ph" path="res://Resource/Act1/Act1ProgressionData.tres" id="4_5n15i"]
+[ext_resource type="Script" path="res://Script/Act1/Act1LevelFinisher.cs" id="4_k7puh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fn8c4"]
+size = Vector2(1674, 427)
+
+[node name="Act1Screen" type="Control" node_paths=PackedStringArray("playerControllerRef")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xc32l")
+playerControllerRef = NodePath("ParallaxBackground/Player2")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_g5asr")]
+
+[node name="Player2" parent="ParallaxBackground" instance=ExtResource("2_pxtlm")]
+position = Vector2(106, 1139)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ParallaxBackground"]
+position = Vector2(0, 419)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxBackground/StaticBody2D2"]
+position = Vector2(882, 1102)
+shape = SubResource("RectangleShape2D_fn8c4")
+
+[node name="LevelTimer" type="Node2D" parent="."]
+script = ExtResource("3_3tooy")
+act1Duration = 20.0
+actProgressionDataRes = ExtResource("4_5n15i")
+
+[node name="LevelFinisher" type="Node2D" parent="." node_paths=PackedStringArray("levelTimer")]
+script = ExtResource("4_k7puh")
+levelTimer = NodePath("../LevelTimer")

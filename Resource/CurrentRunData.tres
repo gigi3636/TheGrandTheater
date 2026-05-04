@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cpbsfs11wqymq"]
+
+[ext_resource type="Script" path="res://Script/Resource/CurrentRunDataRes.cs" id="1_4ekxs"]
+
+[resource]
+script = ExtResource("1_4ekxs")

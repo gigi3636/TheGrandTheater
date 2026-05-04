@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=3 uid="uid://bb61vyimkc6i"]
+
+[ext_resource type="Texture2D" uid="uid://c24ax15o6033u" path="res://Assets/Gemini_Generated_Image_j5x1fqj5x1fqj5x1.png" id="1_agww1"]
+[ext_resource type="Script" path="res://Script/Player/PlayerController.cs" id="1_k7fam"]
+[ext_resource type="Resource" uid="uid://dbhol4f3kkytr" path="res://Resource/PlayStatus.tres" id="2_ed1wx"]
+[ext_resource type="Script" path="res://Script/Player/PlayerCollision.cs" id="4_rcde3"]
+[ext_resource type="Resource" uid="uid://cpbsfs11wqymq" path="res://Resource/CurrentRunData.tres" id="5_vjm0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ro3bf"]
+size = Vector2(320.5, 684)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5im22"]
+size = Vector2(353.769, 617.948)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_k7fam")
+playStatusRef = ExtResource("2_ed1wx")
+
+[node name="PlayerPhysicHitbox" type="CollisionShape2D" parent="."]
+position = Vector2(1.00003, 2.00006)
+scale = Vector2(0.435312, 0.435312)
+shape = SubResource("RectangleShape2D_ro3bf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -76.0
+offset_top = -118.0
+offset_right = 236.0
+offset_bottom = 430.0
+scale = Vector2(0.492076, 0.492076)
+
+[node name="Texture" type="Node2D" parent="."]
+visible = false
+
+[node name="Polygon2D" type="Polygon2D" parent="Texture"]
+color = Color(0.192157, 0.184314, 0.215686, 1)
+polygon = PackedVector2Array(396, 229, 423, 237, 510, 268, 512, 276, 511, 283, 487, 304, 428, 290, 393, 261, 397, 247)
+
+[node name="Helmet" type="Node2D" parent="Texture"]
+
+[node name="Polygon2D" type="Polygon2D" parent="Texture/Helmet"]
+color = Color(0.170182, 0.162286, 0.176059, 1)
+polygon = PackedVector2Array(421, 132, 424, 149, 504, 174, 537, 151, 534, 130, 496, 146)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Texture/Helmet"]
+color = Color(0.777583, 0.765912, 0.786382, 1)
+polygon = PackedVector2Array(474, 44, 531, 84, 538, 133, 533, 136, 497, 152, 426, 136, 426, 148, 503, 171, 536, 150, 533, 136, 536, 134, 540, 150, 522, 262, 498, 283, 432, 253, 391, 168, 369, 155, 360, 123, 375, 109, 381, 109, 423, 81)
+
+[node name="Polygon2D14" type="Polygon2D" parent="Texture/Helmet"]
+color = Color(0.728272, 0.714748, 0.738448, 1)
+polygon = PackedVector2Array(503, 171, 506, 179, 446, 161, 425, 148, 433, 149)
+
+[node name="Polygon2D15" type="Polygon2D" parent="Texture/Helmet"]
+color = Color(0.728272, 0.714748, 0.738448, 1)
+polygon = PackedVector2Array(425, 239, 434, 241, 499, 262, 498, 283, 432, 253)
+
+[node name="Polygon2D12" type="Polygon2D" parent="Texture/Helmet"]
+color = Color(0.355404, 0.342175, 0.365307, 1)
+polygon = PackedVector2Array(384, 127, 390, 129, 377, 160)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Texture/Helmet"]
+color = Color(0.643137, 0.627451, 0.654902, 1)
+polygon = PackedVector2Array(527, 81, 531, 84, 538, 133, 533, 136, 497, 152)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Texture/Helmet"]
+color = Color(0.643137, 0.627451, 0.654902, 1)
+polygon = PackedVector2Array(474, 44, 423, 81, 497, 152)
+
+[node name="Polygon2D8" type="Polygon2D" parent="Texture/Helmet"]
+color = Color(0.643137, 0.627451, 0.654902, 1)
+polygon = PackedVector2Array(381, 109, 423, 81, 426, 136, 390, 129)
+
+[node name="Polygon2D9" type="Polygon2D" parent="Texture/Helmet"]
+color = Color(0.643137, 0.627451, 0.654902, 1)
+polygon = PackedVector2Array(539, 156, 514, 173, 499, 263, 524, 250)
+
+[node name="Polygon2D13" type="Polygon2D" parent="Texture/Helmet"]
+color = Color(0.643137, 0.627451, 0.654902, 1)
+polygon = PackedVector2Array(391, 168, 422, 146, 426, 148, 447, 161, 434, 241, 425, 239)
+
+[node name="Polygon2D11" type="Polygon2D" parent="Texture/Helmet"]
+color = Color(0.590418, 0.574106, 0.602632, 1)
+polygon = PackedVector2Array(360, 123, 375, 109, 384, 127, 377, 160, 369, 155)
+
+[node name="Polygon2D10" type="Polygon2D" parent="Texture/Helmet"]
+color = Color(0.562402, 0.545975, 0.574692, 1)
+polygon = PackedVector2Array(434, 241, 499, 263, 514, 173, 506, 179, 489, 174)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Texture/Helmet"]
+color = Color(0.487096, 0.471051, 0.499078, 1)
+polygon = PackedVector2Array(423, 81, 497, 152, 426, 136)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Texture/Helmet"]
+color = Color(0.486275, 0.470588, 0.498039, 1)
+polygon = PackedVector2Array(390, 129, 426, 136, 426, 148, 422, 146, 391, 168, 377, 160)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Texture/Helmet"]
+color = Color(0.486275, 0.470588, 0.498039, 1)
+polygon = PackedVector2Array(447, 161, 489, 174, 434, 241)
+
+[node name="GeminiGeneratedImageJ5x1Fqj5x1Fqj5x1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(431, 407)
+texture = ExtResource("1_agww1")
+
+[node name="PlayerCollision" type="Node2D" parent="."]
+
+[node name="PlayerCollisionArea" type="Area2D" parent="."]
+position = Vector2(1, 2)
+scale = Vector2(0.435312, 0.435312)
+script = ExtResource("4_rcde3")
+currentRunData = ExtResource("5_vjm0o")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="PlayerCollisionArea"]
+position = Vector2(-5.34058e-05, 33.3093)
+shape = SubResource("RectangleShape2D_5im22")

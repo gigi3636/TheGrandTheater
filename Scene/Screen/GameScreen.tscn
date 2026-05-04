@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhtd757gqojn0"]
+
+[ext_resource type="Script" path="res://Script/Screen/GameScreen.cs" id="1_3x8lm"]
+[ext_resource type="Script" path="res://Script/Manager/GameManager.cs" id="2_10p7m"]
+[ext_resource type="Resource" uid="uid://cpbsfs11wqymq" path="res://Resource/CurrentRunData.tres" id="3_3skfh"]
+[ext_resource type="Script" path="res://Script/PartLoader.cs" id="4_a4vyy"]
+[ext_resource type="Resource" uid="uid://dbhol4f3kkytr" path="res://Resource/PlayStatus.tres" id="4_x6fkc"]
+[ext_resource type="Resource" uid="uid://hwduep3mvt1d" path="res://Resource/PlayToEnum.tres" id="5_tvids"]
+
+[node name="GameScreen" type="Control" node_paths=PackedStringArray("gameManagerRef", "gameSceneContainerRef")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3x8lm")
+gameManagerRef = NodePath("GameManager")
+gameSceneContainerRef = NodePath("PlaySceneContainer")
+
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("partLoaderRef")]
+script = ExtResource("2_10p7m")
+currentRunData = ExtResource("3_3skfh")
+playStatus = ExtResource("4_x6fkc")
+partLoaderRef = NodePath("../PartLoader")
+
+[node name="PlaySceneContainer" type="Node2D" parent="."]
+
+[node name="PartLoader" type="Node2D" parent="." node_paths=PackedStringArray("playSceneContainerRef")]
+script = ExtResource("4_a4vyy")
+playToEnum = Array[Resource]([ExtResource("5_tvids")])
+playSceneContainerRef = NodePath("../PlaySceneContainer")
+playStatus = ExtResource("4_x6fkc")

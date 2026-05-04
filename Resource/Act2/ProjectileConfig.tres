@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bus3mpiyb6pfy"]
+
+[ext_resource type="Script" path="res://Script/Resource/ProjectileConfigRes.cs" id="1_hmf86"]
+
+[resource]
+script = ExtResource("1_hmf86")
+shotPower = 1600.0
+additionalLinearDamp = 0.7
