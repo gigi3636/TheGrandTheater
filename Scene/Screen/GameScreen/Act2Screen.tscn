@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfgd3f3qbwca1"]
+[gd_scene load_steps=12 format=3 uid="uid://bfgd3f3qbwca1"]
 
 [ext_resource type="Script" path="res://Script/PlayScreen/Act2Screen.cs" id="1_myxxw"]
 [ext_resource type="PackedScene" uid="uid://bb61vyimkc6i" path="res://Scene/Player.tscn" id="2_t3naf"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Script/Act2/ArrowSpawner.cs" id="4_k5g6j"]
 [ext_resource type="Script" path="res://Script/Act2/TrajectoryShower.cs" id="5_1f15j"]
 [ext_resource type="Resource" uid="uid://bus3mpiyb6pfy" path="res://Resource/Act2/ProjectileConfig.tres" id="6_uqarg"]
+[ext_resource type="Script" path="res://Script/Act2/EnemySpawner.cs" id="7_0rcud"]
+[ext_resource type="PackedScene" uid="uid://b6u7tkphglfb3" path="res://Scene/Bat.tscn" id="8_omggw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jx3ha"]
 size = Vector2(1704, 237)
@@ -70,4 +72,24 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="a" type="Node2D" parent="."]
+[node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("batSpawnerRef", "playerPosition", "spawnPointList")]
+script = ExtResource("7_0rcud")
+batSpawnerRef = NodePath("../BatSpawn")
+batScene = ExtResource("8_omggw")
+playerPosition = NodePath("../PlayerSpawn")
+spawnPointList = [NodePath("../BatSpawn"), NodePath("../BatSpawn2"), NodePath("../BatSpawn3"), NodePath("../BatSpawn4")]
+
+[node name="BatSpawn" type="Marker2D" parent="."]
+position = Vector2(1688, 214)
+
+[node name="BatSpawn2" type="Marker2D" parent="."]
+position = Vector2(1701, 452)
+
+[node name="BatSpawn3" type="Marker2D" parent="."]
+position = Vector2(1701, 732)
+
+[node name="BatSpawn4" type="Marker2D" parent="."]
+position = Vector2(1693, 994)
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(201, 977)

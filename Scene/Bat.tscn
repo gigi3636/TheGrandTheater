@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6u7tkphglfb3"]
+
+[ext_resource type="Script" path="res://Script/Act2/Bat.cs" id="1_w4chj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgwy7"]
+size = Vector2(137, 53)
+
+[node name="Bat" type="Area2D"]
+script = ExtResource("1_w4chj")
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+position = Vector2(-117, -8)
+scale = Vector2(1.95937, 1.95937)
+polygon = PackedVector2Array(7, -4, 33, -12, 53, 8, 39, 4, 29, 7, 16, 2)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(1.66242, 1.66242)
+polygon = PackedVector2Array(7, -4, 33, -12, 53, 8, 39, 4, 29, 7, 16, 2)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(2.85377, 2.85377)
+color = Color(0.385493, 0.385492, 0.385492, 1)
+polygon = PackedVector2Array(-11, 0, 0, 10, 10, 0, 0, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_cgwy7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
