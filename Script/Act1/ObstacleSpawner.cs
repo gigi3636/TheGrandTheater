@@ -4,11 +4,7 @@ using System;
 public partial class ObstacleSpawner : Node
 {
     [Export] private PackedScene obstacleSceneRef;
-
-	[Export] private Marker2D obstacleSpawnPointRef1;
-	[Export] private Marker2D obstacleSpawnPointRef2;
-	[Export] private Marker2D obstacleSpawnPointRef3;
-
+    [Export] private Godot.Marker2D[] obstacleSpawnPointRef;
 	[Export] private Node2D obstacleContainerRef;
 
     private const float SPAWN_COOLDOWN = 1f;
@@ -26,18 +22,11 @@ public partial class ObstacleSpawner : Node
 
     }
 
-    public override void _Process(double delta)
-    {
-    }
-
     private void SpawnObstacle()
     {
-        Act1Obstacle lObstacle = (Act1Obstacle)obstacleSceneRef.Instantiate();
+        Node2D lObstacle = (Node2D)obstacleSceneRef.Instantiate();
         obstacleContainerRef.AddChild(lObstacle);
-        int lRandom = GD.RandRange(1, 3);
-        if (lRandom == 1) lObstacle.GlobalPosition = obstacleSpawnPointRef1.GlobalPosition;
-        else if (lRandom == 2) lObstacle.GlobalPosition = obstacleSpawnPointRef2.GlobalPosition;
-        else lObstacle.GlobalPosition = obstacleSpawnPointRef3.GlobalPosition;
+        lObstacle.GlobalPosition = obstacleSpawnPointRef[GD.RandRange(0, obstacleSpawnPointRef.Length - 1)].GlobalPosition;
 
     }
 }

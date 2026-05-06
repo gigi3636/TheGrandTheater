@@ -10,8 +10,7 @@ public partial class ParallaxMover : Node2D
     {
         float lDelta = (float)pDelta;
 
-        Vector2 lScrollingMovement = new Vector2(actProgressionDataRes.parallaxScrollingSpeed, 0) * lDelta;
-        parallaxBackgroundRef.ScrollBaseOffset += lScrollingMovement;
+        parallaxBackgroundRef.ScrollBaseOffset += actProgressionDataRes.parallaxScrollingSpeed * lDelta;
 
     }
 }

@@ -133,13 +133,11 @@ script = ExtResource("1_paopp")
 parallaxBackgroundRef = NodePath("..")
 actProgressionDataRes = ExtResource("2_qcvuv")
 
-[node name="ObstacleSpawner" type="Node2D" parent="." node_paths=PackedStringArray("obstacleSpawnPointRef1", "obstacleSpawnPointRef2", "obstacleSpawnPointRef3", "obstacleContainerRef")]
+[node name="ObstacleSpawner" type="Node2D" parent="." node_paths=PackedStringArray("obstacleSpawnPointRef", "obstacleContainerRef")]
 position = Vector2(0, 419)
 script = ExtResource("3_6bpno")
 obstacleSceneRef = ExtResource("4_rwt2e")
-obstacleSpawnPointRef1 = NodePath("../ObstaclerSpawnPoint/ObstacleSpawnPoint4")
-obstacleSpawnPointRef2 = NodePath("../ObstaclerSpawnPoint/ObstacleSpawnPoint5")
-obstacleSpawnPointRef3 = NodePath("../ObstaclerSpawnPoint/ObstacleSpawnPoint6")
+obstacleSpawnPointRef = []
 obstacleContainerRef = NodePath("../ObstacleContainer")
 
 [node name="ObstacleContainer" type="Node2D" parent="."]

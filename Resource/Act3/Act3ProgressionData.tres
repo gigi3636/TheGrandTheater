@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bgys1nctltta4"]
+
+[ext_resource type="Script" path="res://Script/Resource/ActProgressionDataRes.cs" id="1_hbvs4"]
+
+[resource]
+script = ExtResource("1_hbvs4")
+parallaxScrollingSpeed = Vector2(0, 300)

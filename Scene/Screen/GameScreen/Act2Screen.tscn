@@ -72,24 +72,43 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("batSpawnerRef", "playerPosition", "spawnPointList")]
+[node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("playerPositionRef", "spawnPointList", "enemyContainerRef")]
 script = ExtResource("7_0rcud")
-batSpawnerRef = NodePath("../BatSpawn")
 batScene = ExtResource("8_omggw")
-playerPosition = NodePath("../PlayerSpawn")
-spawnPointList = [NodePath("../BatSpawn"), NodePath("../BatSpawn2"), NodePath("../BatSpawn3"), NodePath("../BatSpawn4")]
-
-[node name="BatSpawn" type="Marker2D" parent="."]
-position = Vector2(1688, 214)
-
-[node name="BatSpawn2" type="Marker2D" parent="."]
-position = Vector2(1701, 452)
-
-[node name="BatSpawn3" type="Marker2D" parent="."]
-position = Vector2(1701, 732)
-
-[node name="BatSpawn4" type="Marker2D" parent="."]
-position = Vector2(1693, 994)
+playerPositionRef = NodePath("../PlayerSpawn")
+spawnPointList = [NodePath("../EnemySpawnPoint/BatSpawn"), NodePath("../EnemySpawnPoint/BatSpawn2"), NodePath("../EnemySpawnPoint/BatSpawn7"), NodePath("../EnemySpawnPoint/BatSpawn8"), NodePath("../EnemySpawnPoint/BatSpawn9"), NodePath("../EnemySpawnPoint/BatSpawn10"), NodePath("../EnemySpawnPoint/BatSpawn11"), NodePath("../EnemySpawnPoint/BatSpawn3"), NodePath("../EnemySpawnPoint/BatSpawn4")]
+enemyContainerRef = NodePath("../EnemyContainer")
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(201, 977)
+
+[node name="EnemySpawnPoint" type="Node2D" parent="."]
+
+[node name="BatSpawn" type="Marker2D" parent="EnemySpawnPoint"]
+position = Vector2(1704, -144)
+
+[node name="BatSpawn2" type="Marker2D" parent="EnemySpawnPoint"]
+position = Vector2(1702, 1)
+
+[node name="BatSpawn7" type="Marker2D" parent="EnemySpawnPoint"]
+position = Vector2(1706, 128)
+
+[node name="BatSpawn8" type="Marker2D" parent="EnemySpawnPoint"]
+position = Vector2(1710, 272)
+
+[node name="BatSpawn9" type="Marker2D" parent="EnemySpawnPoint"]
+position = Vector2(1715, 393)
+
+[node name="BatSpawn10" type="Marker2D" parent="EnemySpawnPoint"]
+position = Vector2(1719, 534)
+
+[node name="BatSpawn11" type="Marker2D" parent="EnemySpawnPoint"]
+position = Vector2(1714, 867)
+
+[node name="BatSpawn3" type="Marker2D" parent="EnemySpawnPoint"]
+position = Vector2(1715, 687)
+
+[node name="BatSpawn4" type="Marker2D" parent="EnemySpawnPoint"]
+position = Vector2(1716, 1006)
+
+[node name="EnemyContainer" type="Node2D" parent="."]

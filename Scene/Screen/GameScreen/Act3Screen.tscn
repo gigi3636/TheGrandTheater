@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5ck2hnaedrs3"]
+
+[ext_resource type="Script" path="res://Script/PlayScreen/Act3Screen.cs" id="1_inl8q"]
+[ext_resource type="PackedScene" uid="uid://bb61vyimkc6i" path="res://Scene/Player.tscn" id="2_oq8h5"]
+[ext_resource type="PackedScene" uid="uid://dxpla7ddlo6cd" path="res://Scene/Act3Parallax.tscn" id="3_j1ql6"]
+[ext_resource type="Script" path="res://Script/Act1/ParallaxMover.cs" id="4_cf38b"]
+[ext_resource type="Resource" uid="uid://bgys1nctltta4" path="res://Resource/Act3/Act3ProgressionData.tres" id="5_b21tw"]
+
+[node name="Act3" type="Control" node_paths=PackedStringArray("columnMaxLeftRef", "columnMaxRightRef", "playerControllerRef")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_inl8q")
+columnMaxLeftRef = NodePath("ColumnMarker/ColumnMaxLeft")
+columnMaxRightRef = NodePath("ColumnMarker/ColumnMaxRight")
+playerControllerRef = NodePath("Player")
+
+[node name="Player" parent="." instance=ExtResource("2_oq8h5")]
+position = Vector2(549, 1376)
+
+[node name="ColumnMarker" type="Node2D" parent="."]
+
+[node name="ColumnMaxLeft" type="Marker2D" parent="ColumnMarker"]
+position = Vector2(169, 1372)
+
+[node name="ColumnMaxRight" type="Marker2D" parent="ColumnMarker"]
+position = Vector2(835, 1379)
+
+[node name="Act3Parallax" parent="." instance=ExtResource("3_j1ql6")]
+
+[node name="ParallaxMover" type="Node2D" parent="." node_paths=PackedStringArray("parallaxBackgroundRef")]
+script = ExtResource("4_cf38b")
+parallaxBackgroundRef = NodePath("../Act3Parallax")
+actProgressionDataRes = ExtResource("5_b21tw")

@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxpla7ddlo6cd"]
+
+[ext_resource type="Script" path="res://Script/Act1/ObstacleSpawner.cs" id="1_a8tt8"]
+[ext_resource type="PackedScene" uid="uid://cjuc4y35ditu" path="res://Scene/Act3Obstacle.tscn" id="2_m47pq"]
+
+[node name="Act3Parallax" type="ParallaxBackground"]
+
+[node name="BackgroundLayer" type="ParallaxLayer" parent="."]
+position = Vector2(0, 419)
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(0, 3000)
+
+[node name="ColorRect" type="ColorRect" parent="BackgroundLayer"]
+offset_top = -1798.0
+offset_right = 1095.0
+offset_bottom = 1709.0
+color = Color(0.451843, 0.778004, 0.984482, 1)
+
+[node name="SkyLayer" type="ParallaxLayer" parent="."]
+position = Vector2(0, 419)
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(0, 3000)
+
+[node name="ColorRect" type="ColorRect" parent="SkyLayer"]
+offset_left = 171.0
+offset_top = -1648.0
+offset_right = 833.0
+offset_bottom = 1409.0
+color = Color(0.0094632, 0.172509, 0.259316, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="SkyLayer"]
+offset_left = 222.0
+offset_top = -1648.0
+offset_right = 449.0
+offset_bottom = 150.0
+color = Color(0.035095, 0.338602, 0.488813, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="SkyLayer"]
+offset_left = 546.0
+offset_top = -872.0
+offset_right = 773.0
+offset_bottom = 926.0
+color = Color(0.035095, 0.338602, 0.488813, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="SkyLayer"]
+offset_left = 276.0
+offset_top = -527.0
+offset_right = 503.0
+offset_bottom = 1271.0
+color = Color(0.035095, 0.338602, 0.488813, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="SkyLayer"]
+offset_left = 483.0
+offset_top = -1573.0
+offset_right = 710.0
+offset_bottom = 225.0
+color = Color(0.035095, 0.338602, 0.488813, 1)
+
+[node name="GameContainer" type="ParallaxLayer" parent="."]
+position = Vector2(0, 419)
+
+[node name="ObstacleContainer" type="Node2D" parent="GameContainer"]
+
+[node name="ObstacleSpawner" type="Node2D" parent="." node_paths=PackedStringArray("obstacleSpawnPointRef", "obstacleContainerRef")]
+script = ExtResource("1_a8tt8")
+obstacleSceneRef = ExtResource("2_m47pq")
+obstacleSpawnPointRef = [NodePath("../ObstacleSpawnPoint/Spawn1"), NodePath("../ObstacleSpawnPoint/Spawn2"), NodePath("../ObstacleSpawnPoint/Spawn3"), NodePath("../ObstacleSpawnPoint/Spawn4")]
+obstacleContainerRef = NodePath("../GameContainer/ObstacleContainer")
+
+[node name="ObstacleSpawnPoint" type="Node2D" parent="."]
+
+[node name="Spawn1" type="Marker2D" parent="ObstacleSpawnPoint"]
+position = Vector2(260, -1055)
+
+[node name="Spawn2" type="Marker2D" parent="ObstacleSpawnPoint"]
+position = Vector2(407, -1098)
+
+[node name="Spawn3" type="Marker2D" parent="ObstacleSpawnPoint"]
+position = Vector2(583, -1067)
+
+[node name="Spawn4" type="Marker2D" parent="ObstacleSpawnPoint"]
+position = Vector2(763, -1122)

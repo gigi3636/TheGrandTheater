@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_u2cqe")
-parallaxScrollingSpeed = -1000.0
+parallaxScrollingSpeed = Vector2(-300, 0)

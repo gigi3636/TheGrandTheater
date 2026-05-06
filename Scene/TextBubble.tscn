@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvxb8pgi2cj58"]
+
+[ext_resource type="Script" path="res://Script/TextShower.cs" id="1_ug2q7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hakrq"]
+font_size = 36
+font_color = Color(0, 0, 0, 1)
+
+[node name="TextBubble" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BubbleTexture" type="Node2D" parent="CanvasLayer"]
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/BubbleTexture"]
+position = Vector2(8, -58)
+color = Color(0.114897, 0.114897, 0.114897, 1)
+polygon = PackedVector2Array(35, 1739, 133, 1651, 998, 1627, 1055, 1717, 990, 1816, 1039, 1902, 965, 1828, 92, 1843)
+
+[node name="Polygon2D2" type="Polygon2D" parent="CanvasLayer/BubbleTexture"]
+position = Vector2(25, 35)
+scale = Vector2(0.94975, 0.94975)
+polygon = PackedVector2Array(35, 1739, 133, 1651, 998, 1627, 1055, 1717, 990, 1816, 1039, 1902, 965, 1828, 92, 1843)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 141.0
+offset_top = 1616.0
+offset_right = 956.0
+offset_bottom = 1780.0
+rotation = -0.0303775
+text = "WOW
+Tu as fait tout cela seul ? 
+impressionant"
+label_settings = SubResource("LabelSettings_hakrq")
+
+[node name="TextShower" type="Node2D" parent="CanvasLayer"]
+script = ExtResource("1_ug2q7")

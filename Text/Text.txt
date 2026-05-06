@@ -1,0 +1,2 @@
+accueil_happy;Bonjour ! Je suis si content de vous voir.&Installez-vous confortablement, nous avons beaucoup à voir.&Tout est prêt pour commencer.
+accueil_triste;Oh... c'est vous.&Je n'ai pas grand chose à dire aujourd'hui.&Revenez plus tard.

@@ -3,14 +3,13 @@ using System;
 
 public partial class ActProgressionDataRes : Resource
 {
-    private const int SCROLLING_SPEED_INCREASE = -100;
+    private const float SCROLLING_SPEED_INCREASE = 1.50f;
 
-    [Export] public float parallaxScrollingSpeed { get; private set; } = -500f;
+    [Export] public Vector2 parallaxScrollingSpeed { get; private set; }
 
 
     public void IncreaseSpeed()
     {
-        parallaxScrollingSpeed += SCROLLING_SPEED_INCREASE;
-
+        parallaxScrollingSpeed *= SCROLLING_SPEED_INCREASE;
     }
 }
