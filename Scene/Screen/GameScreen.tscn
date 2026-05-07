@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhtd757gqojn0"]
+[gd_scene load_steps=11 format=3 uid="uid://bhtd757gqojn0"]
 
 [ext_resource type="Script" path="res://Script/Screen/GameScreen.cs" id="1_3x8lm"]
 [ext_resource type="Script" path="res://Script/Manager/GameManager.cs" id="2_10p7m"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://cg04dom54ae7w" path="res://Resource/PlayScreenToEnum/Act1ToEnum.tres" id="6_2dob8"]
 [ext_resource type="Resource" uid="uid://cjgls24cfi18c" path="res://Resource/PlayScreenToEnum/IntroToEnum.tres" id="7_ano2d"]
 [ext_resource type="PackedScene" uid="uid://cvxb8pgi2cj58" path="res://Scene/TextBubble.tscn" id="7_d86go"]
+[ext_resource type="Resource" uid="uid://ctp8jet334t87" path="res://Resource/PlayScreenToEnum/Act2ToEnum.tres" id="8_iwwgc"]
 [ext_resource type="Script" path="res://Script/TextSignalReceiver.cs" id="8_yja0f"]
 
 [node name="GameScreen" type="Control" node_paths=PackedStringArray("gameManagerRef", "gameSceneContainerRef")]
@@ -27,17 +28,18 @@ partLoaderRef = NodePath("../PartLoader")
 
 [node name="PartLoader" type="Node2D" parent="." node_paths=PackedStringArray("playSceneContainerRef", "textSignalReceiverRef")]
 script = ExtResource("4_a4vyy")
-playToEnum = Array[Resource]([ExtResource("6_2dob8"), ExtResource("7_ano2d")])
+playToEnum = Array[Resource]([ExtResource("6_2dob8"), ExtResource("7_ano2d"), ExtResource("8_iwwgc")])
 playSceneContainerRef = NodePath("../PlaySceneContainer")
 playStatus = ExtResource("4_x6fkc")
 textSignalReceiverRef = NodePath("../TextSignalReceiver")
 
-[node name="TextBubble" parent="." instance=ExtResource("7_d86go")]
+[node name="TextBubble" parent="." node_paths=PackedStringArray("partLoaderRef") instance=ExtResource("7_d86go")]
 layout_mode = 1
 offset_left = 230.0
 offset_top = 1039.0
 offset_right = 230.0
 offset_bottom = 1039.0
+partLoaderRef = NodePath("../PartLoader")
 
 [node name="TextSignalReceiver" type="Node2D" parent="." node_paths=PackedStringArray("textBubbleRef")]
 script = ExtResource("8_yja0f")

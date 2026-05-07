@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("1_pl1x1")
-playStatus = 0
+playStatus = 1
 playScene = ExtResource("1_i8f66")

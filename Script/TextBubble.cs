@@ -5,12 +5,15 @@ public partial class TextBubble : Control
 {
     [Export] private TextShower textShowerRef;
     [Export] private CanvasLayer canvasLayerRef;
+    [Export] private PartLoader partLoaderRef;
 
     [Export] private float delayBetweenTexts = 1.0f;
 
+    private string currentTextToShowKey;
     private string[] textSliced;
     private int textSlicedId;
 
+    public event Action<string> OnDialogueFinish;
     private Timer autoNextTimer;
 
     public override void _Ready()
@@ -37,9 +40,11 @@ public partial class TextBubble : Control
         Visible = true;
         canvasLayerRef.Visible = true;
 
-        string allTextToSlice = Tr(pTextToShowKey);
+        currentTextToShowKey = pTextToShowKey;
 
-        textSliced = allTextToSlice.Split('|');
+        string lAllTextToSlice = Tr(currentTextToShowKey);
+
+        textSliced = lAllTextToSlice.Split('|');
         textSlicedId = 0;
 
         ShowCurrentTextSlice();
@@ -74,6 +79,8 @@ public partial class TextBubble : Control
 
         autoNextTimer.Stop();
         Visible = false;
+        partLoaderRef.LoadNextPlay();
         canvasLayerRef.Visible = false;
+
     }
 }

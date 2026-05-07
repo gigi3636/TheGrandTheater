@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Act1Screen : PlayScreen
+public partial class Act1Screen : GameplayScreen
 {
     protected override IPlayerAction ReturnPlayerAction()
     {

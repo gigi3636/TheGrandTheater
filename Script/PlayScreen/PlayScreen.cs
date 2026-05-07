@@ -5,6 +5,7 @@ public partial class PlayScreen : Control
 {
 	[Export] protected PlayerController playerControllerRef;
 	protected IPlayerAction playerAction;
+    [Signal] public delegate void OnPlayFinishedEventHandler();
 
     public event Action<string> OnDialogueRequested;
 
@@ -24,4 +25,8 @@ public partial class PlayScreen : Control
         OnDialogueRequested?.Invoke(pDialogueKey);
     }
 
+	public virtual void StartPlay()
+	{
+
+	}
 }

@@ -28,10 +28,16 @@ public partial class PartLoader : Node
     {
         foreach (PlayScreen lChild in playSceneContainerRef.GetChildren())
         {
+            lChild.OnPlayFinished -= LoadNextPlay;
             lChild.QueueFree();
         }
 
-        PlayScreen lScene = (PlayScreen)playScenes[playStatus.currentPlayStatus].Instantiate();
+        playStatus.currentPlay.NextPlay();
+
+
+        PlayScreen lScene = (PlayScreen)playScenes[playStatus.currentPlay.currentPlayStatus].Instantiate();
+        lScene.OnPlayFinished += LoadNextPlay;
+        lScene.StartPlay();
         textSignalReceiverRef.ChangePlayScreen(lScene);
 
         playSceneContainerRef.AddChild(lScene);

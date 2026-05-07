@@ -24,9 +24,9 @@ public partial class ObstacleSpawner : Node
 
     private void SpawnObstacle()
     {
-        Node2D lObstacle = (Node2D)obstacleSceneRef.Instantiate();
-        obstacleContainerRef.AddChild(lObstacle);
-        lObstacle.GlobalPosition = obstacleSpawnPointRef[GD.RandRange(0, obstacleSpawnPointRef.Length - 1)].GlobalPosition;
+        //Node2D lObstacle = (Node2D)obstacleSceneRef.Instantiate();
+        //obstacleContainerRef.AddChild(lObstacle);
+        //lObstacle.GlobalPosition = obstacleSpawnPointRef[GD.RandRange(0, obstacleSpawnPointRef.Length - 1)].GlobalPosition;
 
     }
 }
