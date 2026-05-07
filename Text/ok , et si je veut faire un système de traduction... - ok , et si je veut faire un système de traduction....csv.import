@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://icjh71dc7mop"
+
+[deps]
+
+files=["res://Text/ok , et si je veut faire un système de traduction... - ok , et si je veut faire un système de traduction....fr.translation", "res://Text/ok , et si je veut faire un système de traduction... - ok , et si je veut faire un système de traduction....en.translation"]
+
+source_file="res://Text/ok , et si je veut faire un système de traduction... - ok , et si je veut faire un système de traduction....csv"
+dest_files=["res://Text/ok , et si je veut faire un système de traduction... - ok , et si je veut faire un système de traduction....fr.translation", "res://Text/ok , et si je veut faire un système de traduction... - ok , et si je veut faire un système de traduction....en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -9,6 +9,7 @@ public partial class PartLoader : Node
     [Export] private Godot.Collections.Array<PlayToEnumRes> playToEnum;
     [Export] private Node2D playSceneContainerRef;
     [Export] private PlayStatusRes playStatus;
+    [Export] private TextSignalReceiver textSignalReceiverRef;
 
     // Dictionary whit Play Status Enum as KEY and packedScene as value
     public Godot.Collections.Dictionary<PlayStatusRes.PlayStatusEnum, PackedScene> playScenes { get; private set; } =
@@ -25,12 +26,14 @@ public partial class PartLoader : Node
 
     public void LoadNextPlay()
     {
-        foreach (Control lChild in playSceneContainerRef.GetChildren())
+        foreach (PlayScreen lChild in playSceneContainerRef.GetChildren())
         {
             lChild.QueueFree();
         }
 
-        Control lScene = (Control)playScenes[playStatus.currentPlayStatus].Instantiate();
+        PlayScreen lScene = (PlayScreen)playScenes[playStatus.currentPlayStatus].Instantiate();
+        textSignalReceiverRef.ChangePlayScreen(lScene);
+
         playSceneContainerRef.AddChild(lScene);
     }
 }

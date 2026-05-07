@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ufl7khmo231i"]
+
+[ext_resource type="Script" path="res://Script/PlayScreen/Lore/IntroScreen.cs" id="1_6heds"]
+[ext_resource type="PackedScene" uid="uid://bb61vyimkc6i" path="res://Scene/Player.tscn" id="2_rh2c7"]
+
+[node name="IntroScreen" type="Control" node_paths=PackedStringArray("playerControllerRef")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6heds")
+playerControllerRef = NodePath("Player")
+
+[node name="Player" parent="." instance=ExtResource("2_rh2c7")]
+position = Vector2(441, 995)

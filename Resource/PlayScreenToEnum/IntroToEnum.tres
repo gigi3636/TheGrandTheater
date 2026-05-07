@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cjgls24cfi18c"]
+
+[ext_resource type="PackedScene" uid="uid://ufl7khmo231i" path="res://Scene/Screen/GameScreen/IntroScreen.tscn" id="1_i8f66"]
+[ext_resource type="Script" path="res://Script/Resource/PlayToEnumRes.cs" id="1_pl1x1"]
+
+[resource]
+script = ExtResource("1_pl1x1")
+playStatus = 0
+playScene = ExtResource("1_i8f66")

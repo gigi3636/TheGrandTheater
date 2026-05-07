@@ -1,18 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvxb8pgi2cj58"]
+[gd_scene load_steps=4 format=3 uid="uid://cvxb8pgi2cj58"]
 
+[ext_resource type="Script" path="res://Script/TextBubble.cs" id="1_nqywq"]
 [ext_resource type="Script" path="res://Script/TextShower.cs" id="1_ug2q7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hakrq"]
 font_size = 36
 font_color = Color(0, 0, 0, 1)
 
-[node name="TextBubble" type="Control"]
+[node name="TextBubble" type="Control" node_paths=PackedStringArray("textShowerRef", "canvasLayerRef")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nqywq")
+textShowerRef = NodePath("CanvasLayer/TextShower")
+canvasLayerRef = NodePath("CanvasLayer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -39,5 +43,6 @@ Tu as fait tout cela seul ?
 impressionant"
 label_settings = SubResource("LabelSettings_hakrq")
 
-[node name="TextShower" type="Node2D" parent="CanvasLayer"]
+[node name="TextShower" type="Node2D" parent="CanvasLayer" node_paths=PackedStringArray("textLabel")]
 script = ExtResource("1_ug2q7")
+textLabel = NodePath("../Label")

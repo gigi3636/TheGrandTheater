@@ -1,23 +1,79 @@
 using Godot;
 using System;
-using System.Collections.Generic;
 
 public partial class TextBubble : Control
 {
-	[Export] private TextShower textShowerRef;
-    [Export(PropertyHint.File, "*.txt")] private string _cheminFichierTexte;
+    [Export] private TextShower textShowerRef;
+    [Export] private CanvasLayer canvasLayerRef;
 
-    private Dictionary<string, string> allText;
+    [Export] private float delayBetweenTexts = 1.0f;
+
+    private string[] textSliced;
+    private int textSlicedId;
+
+    private Timer autoNextTimer;
 
     public override void _Ready()
     {
-        allText = TextParser.ChargerDictionnaireDepuisTxt(_cheminFichierTexte);
+        autoNextTimer = new Timer();
+        autoNextTimer.WaitTime = delayBetweenTexts;
+        autoNextTimer.OneShot = true; 
+
+        autoNextTimer.Timeout += NextPartToShow;
+
+        AddChild(autoNextTimer);
+        Visible = false;
+        canvasLayerRef.Visible = false;
+
     }
 
-    public void RightText(string pTextToShowKey)
-	{
-        if (!allText.ContainsKey(pTextToShowKey)) return;
+    public void Initialize(string pTextToShowKey)
+    {
+        StartMonologue(pTextToShowKey);
+    }
 
-        textShowerRef.ShowText(allText[pTextToShowKey]);
+    public void StartMonologue(string pTextToShowKey)
+    {
+        Visible = true;
+        canvasLayerRef.Visible = true;
+
+        string allTextToSlice = Tr(pTextToShowKey);
+
+        textSliced = allTextToSlice.Split('|');
+        textSlicedId = 0;
+
+        ShowCurrentTextSlice();
+    }
+
+    public void NextPartToShow()
+    {
+        textSlicedId++;
+
+        if (textSlicedId < textSliced.Length)
+        {
+            ShowCurrentTextSlice();
+        }
+        else
+        {
+            EndMonologue();
+        }
+    }
+
+    private void ShowCurrentTextSlice()
+    {
+        string textToShow = textSliced[textSlicedId].Trim();
+        textShowerRef.ShowText(textToShow);
+
+        autoNextTimer.Start();
+    }
+
+    private void EndMonologue()
+    {
+        textSliced = null;
+        textShowerRef.ShowText("");
+
+        autoNextTimer.Stop();
+        Visible = false;
+        canvasLayerRef.Visible = false;
     }
 }

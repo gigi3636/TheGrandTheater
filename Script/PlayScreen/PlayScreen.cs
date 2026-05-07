@@ -6,7 +6,9 @@ public partial class PlayScreen : Control
 	[Export] protected PlayerController playerControllerRef;
 	protected IPlayerAction playerAction;
 
-	public override void _Ready()
+    public event Action<string> OnDialogueRequested;
+
+    public override void _Ready()
 	{
 		playerControllerRef.ChangePlayerAction(ReturnPlayerAction());
     }
@@ -15,5 +17,11 @@ public partial class PlayScreen : Control
 	{
 		return null;
 	}
+
+	public void StartNewDialogue(string pDialogueKey)
+	{
+		GD.Print("sat");
+        OnDialogueRequested?.Invoke(pDialogueKey);
+    }
 
 }

@@ -22,7 +22,7 @@ public partial class PlayStatusRes : Resource
 
     public void StartNewRun()
     {
-        currentPlayStatus = PlayStatusEnum.Act1Gameplay;
+        currentPlayStatus = PlayStatusEnum.IntroDialogue;
     }
 
 }
