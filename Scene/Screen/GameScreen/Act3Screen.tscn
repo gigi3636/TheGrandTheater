@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5ck2hnaedrs3"]
+[gd_scene load_steps=10 format=3 uid="uid://b5ck2hnaedrs3"]
 
-[ext_resource type="Script" path="res://Script/PlayScreen/Act3Screen.cs" id="1_inl8q"]
+[ext_resource type="Script" path="res://Script/PlayScreen/GamePlay/Act3Screen.cs" id="1_inl8q"]
 [ext_resource type="PackedScene" uid="uid://cvxb8pgi2cj58" path="res://Scene/TextBubble.tscn" id="2_6gkns"]
 [ext_resource type="PackedScene" uid="uid://bb61vyimkc6i" path="res://Scene/Player.tscn" id="2_oq8h5"]
 [ext_resource type="PackedScene" uid="uid://dxpla7ddlo6cd" path="res://Scene/Act3Parallax.tscn" id="3_j1ql6"]
 [ext_resource type="Script" path="res://Script/Act1/ParallaxMover.cs" id="4_cf38b"]
-[ext_resource type="Resource" uid="uid://bgys1nctltta4" path="res://Resource/Act3/Act3ProgressionData.tres" id="5_b21tw"]
+[ext_resource type="Resource" uid="uid://dpvglsmoosick" path="res://Resource/Act3/Act3ParallaxProgressionData.tres" id="6_ui0ig"]
+[ext_resource type="Script" path="res://Script/Act1/LevelTimer.cs" id="7_ghfpj"]
+[ext_resource type="Script" path="res://Script/Manager/ActeProgressionManager.cs" id="7_y0i60"]
+[ext_resource type="Resource" uid="uid://ct65716vf7xqe" path="res://Resource/Act3/Act3SpawnerProgressionData.tres" id="9_hb3uh"]
 
 [node name="Act3" type="Control" node_paths=PackedStringArray("columnMaxLeftRef", "columnMaxRightRef", "playerControllerRef")]
 layout_mode = 3
@@ -36,4 +39,14 @@ position = Vector2(835, 1379)
 [node name="ParallaxMover" type="Node2D" parent="." node_paths=PackedStringArray("parallaxBackgroundRef")]
 script = ExtResource("4_cf38b")
 parallaxBackgroundRef = NodePath("../Act3Parallax")
-actProgressionDataRes = ExtResource("5_b21tw")
+parallaxProgressionDataRes = ExtResource("6_ui0ig")
+
+[node name="LevelTimer" type="Node2D" parent="."]
+script = ExtResource("7_ghfpj")
+actDuration = 6.0
+intervalDuration = 2.0
+
+[node name="ActProgressionManager" type="Node2D" parent="." node_paths=PackedStringArray("levelTimerRef")]
+script = ExtResource("7_y0i60")
+actProgressionArray = Array[Resource]([ExtResource("6_ui0ig"), ExtResource("9_hb3uh")])
+levelTimerRef = NodePath("../LevelTimer")

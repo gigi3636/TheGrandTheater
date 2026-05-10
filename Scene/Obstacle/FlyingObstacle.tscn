@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://h65kjvruy4lq"]
+
+[ext_resource type="PackedScene" uid="uid://dm1exnjtdoqse" path="res://Scene/Obstacle/BaseObstacle.tscn" id="1_5ow2e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42g6d"]
+size = Vector2(66, 29)
+
+[node name="FlyingObstacle" instance=ExtResource("1_5ow2e")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(7, -1.5)
+shape = SubResource("RectangleShape2D_42g6d")
+
+[node name="ColorRect" type="ColorRect" parent="." index="1"]
+offset_left = -62.0
+offset_top = -34.0
+offset_right = 73.0
+offset_bottom = 36.0
+color = Color(0.662453, 0.662452, 0.662452, 1)

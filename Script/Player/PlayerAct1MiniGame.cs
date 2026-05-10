@@ -3,16 +3,12 @@ using System;
 
 public partial class PlayerAct1MiniGame : IPlayerAction
 {
-    private const float JUMP_MAX_INTENSITY = -2500f;
-    private const float JUMP_INCREASE_VALUE = -2500f;
+    private const float JUMP_FORCE = -1600f;
+    private const float MIN_JUMP_VELOCITY = -600f;
+    private const float GRAVITY_MULTIPLIER = 5.0f;
 
     private PlayerController playerControllerRef;
-
     private float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
-    private float currentJumpVelocity = 0f;
-
-    private bool isPlayerJumping;
-    private bool isPlayerCharginJump;
 
     public PlayerAct1MiniGame(PlayerController pPlayerControllerRef)
     {
@@ -21,42 +17,33 @@ public partial class PlayerAct1MiniGame : IPlayerAction
 
     public void OnButtonPressed()
     {
-        if (!isPlayerJumping && playerControllerRef.IsOnFloor() &&  !isPlayerCharginJump)
+        if (playerControllerRef.IsOnFloor())
         {
-            isPlayerCharginJump = true;
+            Vector2 lVelocity = playerControllerRef.Velocity;
+            lVelocity.Y = JUMP_FORCE;
+            playerControllerRef.Velocity = lVelocity;
         }
     }
 
-    public void OnButtonReleased() 
+    public void OnButtonReleased()
     {
-        if (!isPlayerJumping && playerControllerRef.IsOnFloor() &&  isPlayerCharginJump)
+        Vector2 lVelocity = playerControllerRef.Velocity;
+        if (lVelocity.Y < MIN_JUMP_VELOCITY && !playerControllerRef.IsOnFloor())
         {
-            isPlayerJumping = true;
-            isPlayerCharginJump = false;
+            lVelocity.Y = MIN_JUMP_VELOCITY;
+            playerControllerRef.Velocity = lVelocity;
         }
     }
 
-    public void OnButtonIdle() { } // Why not add stamina and using high jump use more of it and idle recup stam?
+    public void OnButtonIdle() { }
 
     public void Update(float pDelta)
     {
         Vector2 lVelocity = playerControllerRef.Velocity;
 
         if (!playerControllerRef.IsOnFloor())
-            lVelocity.Y += (gravity + 5000) * pDelta;
-
-        if (isPlayerCharginJump)
         {
-            if (currentJumpVelocity > (JUMP_MAX_INTENSITY ))
-            {
-                currentJumpVelocity += JUMP_INCREASE_VALUE * pDelta;
-            }
-        }
-        else if (isPlayerJumping)
-        {
-            lVelocity.Y = currentJumpVelocity;
-            isPlayerJumping = false;
-            currentJumpVelocity = 0f;
+            lVelocity.Y += (gravity * GRAVITY_MULTIPLIER) * pDelta;
         }
 
         playerControllerRef.Velocity = lVelocity;

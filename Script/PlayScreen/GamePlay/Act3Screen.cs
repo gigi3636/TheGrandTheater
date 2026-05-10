@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Act3Screen : PlayScreen
+public partial class Act3Screen : GameplayScreen
 {
     [Export] private Marker2D columnMaxLeftRef;
     [Export] private Marker2D columnMaxRightRef;

@@ -7,6 +7,7 @@ public partial class EnemySpawner : Node
     [Export] private Marker2D playerPositionRef;
     [Export] private Godot.Marker2D[] spawnPointList;
     [Export] private Node2D enemyContainerRef;
+    [Export] private SpawnerProgressionDataRes spawnerProgressionDataRes;
 
     private RandomNumberGenerator rand = new RandomNumberGenerator();
     private Timer spawnTimer;
@@ -14,8 +15,8 @@ public partial class EnemySpawner : Node
     public override void _Ready()
     {
         spawnTimer = new Timer();
-        spawnTimer.WaitTime = 2f;
-        spawnTimer.OneShot = false;
+        spawnTimer.WaitTime = spawnerProgressionDataRes.enemySpawnTimerDuration;
+        spawnTimer.OneShot = true;
         enemyContainerRef.AddChild(spawnTimer);   
         spawnTimer.Timeout += SpawnEntity;
         spawnTimer.Start();
@@ -28,5 +29,7 @@ public partial class EnemySpawner : Node
         AddChild(lBat);
         lBat.GlobalPosition = spawnPointList[rand.RandiRange(0, spawnPointList.Length-1)].GlobalPosition;
         lBat.Initialize(playerPositionRef.GlobalPosition);
+        spawnTimer.WaitTime = spawnerProgressionDataRes.enemySpawnTimerDuration;
+        spawnTimer.Start();
     }
 }

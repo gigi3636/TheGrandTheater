@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://dmmicxnfndi8x"]
 
 [ext_resource type="PackedScene" uid="uid://ddhptnrjjudru" path="res://Scene/Act1Parallax.tscn" id="1_g5asr"]
-[ext_resource type="Script" path="res://Script/PlayScreen/Act1Screen.cs" id="1_xc32l"]
+[ext_resource type="Script" path="res://Script/PlayScreen/GamePlay/Act1Screen.cs" id="1_xc32l"]
 [ext_resource type="PackedScene" uid="uid://bb61vyimkc6i" path="res://Scene/Player.tscn" id="2_pxtlm"]
-[ext_resource type="Script" path="res://Script/Act1/Act1LevelTimer.cs" id="3_3tooy"]
-[ext_resource type="Resource" uid="uid://bhilqi54wd3ph" path="res://Resource/Act1/Act1ProgressionData.tres" id="4_5n15i"]
-[ext_resource type="Script" path="res://Script/Act1/Act1LevelFinisher.cs" id="4_k7puh"]
+[ext_resource type="Script" path="res://Script/Act1/LevelTimer.cs" id="4_war4t"]
 [ext_resource type="Script" path="res://Script/Act1/ParallaxMover.cs" id="7_744jt"]
+[ext_resource type="Resource" uid="uid://b4m0g8glq6xak" path="res://Resource/Act1/Act1ParallaxProgressionData.tres" id="9_v7mnp"]
+[ext_resource type="Script" path="res://Script/Manager/ActeProgressionManager.cs" id="9_wft4e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fn8c4"]
 size = Vector2(1674, 427)
@@ -19,7 +19,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xc32l")
-actDuration = 6
 playerControllerRef = NodePath("ParallaxBackground/Player2")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_g5asr")]
@@ -35,15 +34,16 @@ position = Vector2(882, 1102)
 shape = SubResource("RectangleShape2D_fn8c4")
 
 [node name="LevelTimer" type="Node2D" parent="."]
-script = ExtResource("3_3tooy")
-act1Duration = 20.0
-actProgressionDataRes = ExtResource("4_5n15i")
-
-[node name="LevelFinisher" type="Node2D" parent="." node_paths=PackedStringArray("levelTimer")]
-script = ExtResource("4_k7puh")
-levelTimer = NodePath("../LevelTimer")
+script = ExtResource("4_war4t")
+actDuration = 60.0
+intervalDuration = 5.0
 
 [node name="ParallaxMover" type="Node2D" parent="." node_paths=PackedStringArray("parallaxBackgroundRef")]
 script = ExtResource("7_744jt")
 parallaxBackgroundRef = NodePath("../ParallaxBackground")
-actProgressionDataRes = ExtResource("4_5n15i")
+parallaxProgressionDataRes = ExtResource("9_v7mnp")
+
+[node name="ActProgressionManager" type="Node2D" parent="." node_paths=PackedStringArray("levelTimerRef")]
+script = ExtResource("9_wft4e")
+actProgressionArray = Array[Resource]([ExtResource("9_v7mnp")])
+levelTimerRef = NodePath("../LevelTimer")

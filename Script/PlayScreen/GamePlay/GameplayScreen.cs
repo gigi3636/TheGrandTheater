@@ -3,18 +3,20 @@ using System;
 
 public partial class GameplayScreen : PlayScreen
 {
-    [Export] public int actDuration { get;private set ;}
+    [Export] protected PlayerController playerControllerRef;
+    protected IPlayerAction playerAction;
 
-    protected Timer playTimer;
+    public override void _Ready()
+    {
+        playerControllerRef.ChangePlayerAction(ReturnPlayerAction());
+    }
+
+    protected virtual IPlayerAction ReturnPlayerAction()
+    {
+        return null;
+    }
 
     public override void StartPlay()
     {
-        playTimer = new Timer();
-        AddChild(playTimer);
-
-        playTimer.WaitTime = actDuration;
-        playTimer.OneShot = true;
-        playTimer.Timeout += () => EmitSignal(SignalName.OnPlayFinished);
-        playTimer.Autostart = true;
     }
 }

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Act2Screen : PlayScreen
+public partial class Act2Screen : GameplayScreen
 {
     [Export] private ArrowSpawner arrowSpawnerRef;
     [Export] private TrajectoryShower trajectoryShowerRef;

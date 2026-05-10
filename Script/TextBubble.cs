@@ -5,7 +5,6 @@ public partial class TextBubble : Control
 {
     [Export] private TextShower textShowerRef;
     [Export] private CanvasLayer canvasLayerRef;
-    [Export] private PartLoader partLoaderRef;
 
     [Export] private float delayBetweenTexts = 1.0f;
 
@@ -79,8 +78,8 @@ public partial class TextBubble : Control
 
         autoNextTimer.Stop();
         Visible = false;
-        partLoaderRef.LoadNextPlay();
         canvasLayerRef.Visible = false;
+        OnDialogueFinish?.Invoke(currentTextToShowKey);
 
     }
 }

@@ -3,10 +3,8 @@ using System;
 
 public partial class IddleScreen : PlayScreen
 {
-    protected override IPlayerAction ReturnPlayerAction()
+    public override void DialogueHasEnded()
     {
-        return new PlayerIddle(playerControllerRef);
+        EmitSignal(SignalName.OnPlayFinished);
     }
-
-
 }

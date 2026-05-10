@@ -3,26 +3,36 @@ using System;
 
 public partial class TextSignalReceiver : Node
 {
-	[Export] TextBubble textBubbleRef;
+    [Export] TextBubble textBubbleRef;
 
-	private PlayScreen currentPlayScreenRef;
+    private PlayScreen currentPlayScreenRef;
 
-	public void ChangePlayScreen(PlayScreen pNewCurrentPlayScreen)
-	{
+    public override void _Ready()
+    {
+        textBubbleRef.OnDialogueFinish += HandleDialogueFinish;
+    }
+
+    public void ChangePlayScreen(PlayScreen pNewCurrentPlayScreen)
+    {
         if (currentPlayScreenRef != null)
         {
             currentPlayScreenRef.OnDialogueRequested -= LoadTextBubble;
         }
 
         currentPlayScreenRef = pNewCurrentPlayScreen;
-
         currentPlayScreenRef.OnDialogueRequested += LoadTextBubble;
-
     }
 
-	public void LoadTextBubble(string pDialogueKey)
-	{
-        GD.Print("text receive");
+    public void LoadTextBubble(string pDialogueKey)
+    {
         textBubbleRef.StartMonologue(pDialogueKey);
+    }
+
+    private void HandleDialogueFinish(string pDialogueKey)
+    {
+        if (currentPlayScreenRef != null)
+        {
+            currentPlayScreenRef.DialogueHasEnded();
+        }
     }
 }

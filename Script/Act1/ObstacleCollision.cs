@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Act1Obstacle : Area2D
+public partial class ObstacleCollision : Area2D
 {
     public void _on_area_entered(Node2D pIntruder)
     {

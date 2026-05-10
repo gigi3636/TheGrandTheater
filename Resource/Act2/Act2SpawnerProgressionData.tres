@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d0leq1i4eg6rr"]
+
+[ext_resource type="Script" path="res://Script/Resource/Progression/SpawnerProgressionDataRes.cs" id="1_o7ke5"]
+
+[resource]
+script = ExtResource("1_o7ke5")
+enemySpawnTimerDuration = 2.0

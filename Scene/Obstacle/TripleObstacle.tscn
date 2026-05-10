@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgtgxfineqi5d"]
+
+[ext_resource type="PackedScene" uid="uid://dm1exnjtdoqse" path="res://Scene/Obstacle/BaseObstacle.tscn" id="1_n0o5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_av5yc"]
+size = Vector2(93, 74)
+
+[node name="TripleObstacle" instance=ExtResource("1_n0o5p")]
+
+[node name="Area2D" parent="." index="0"]
+position = Vector2(-28, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(16.5, 14)
+shape = SubResource("RectangleShape2D_av5yc")
+
+[node name="ColorRect" type="ColorRect" parent="." index="1"]
+offset_left = -28.0
+offset_top = -112.0
+offset_right = 39.0
+color = Color(0.856067, 0.856067, 0.856067, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." index="2"]
+offset_left = -95.0
+offset_top = -99.0
+offset_right = -28.0
+offset_bottom = 13.0
+color = Color(0.435193, 0.435192, 0.435192, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="." index="3"]
+offset_left = 39.0
+offset_top = -100.0
+offset_right = 106.0
+offset_bottom = 12.0
+color = Color(0.389288, 0.389286, 0.389286, 1)

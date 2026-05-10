@@ -4,17 +4,18 @@ using System.Collections.Generic;
 
 public partial class CurrentRunDataRes : Resource
 {
-    public Dictionary<int, int> playerHitPerAct {  get; private set; }
+    public Dictionary<PlayStatusRes.PlayStatusEnum, int> playerHitPerAct {  get; private set; }
 
     public void StartNewRun()
     {
-        playerHitPerAct = new Dictionary<int, int>();
+        playerHitPerAct = new Dictionary<PlayStatusRes.PlayStatusEnum, int>();
     }
 
-    public void RegisterNewHit(int pId)
+    public void RegisterNewHit(PlayStatusRes.PlayStatusEnum pCurrentPlay)
     {
-        if (!playerHitPerAct.ContainsKey(pId)) playerHitPerAct.Add(pId, 0);
-        playerHitPerAct[pId]++;
-        GD.Print(playerHitPerAct[pId]);
+        if (!playerHitPerAct.ContainsKey(pCurrentPlay)) playerHitPerAct.Add(pCurrentPlay, 0);
+        playerHitPerAct[pCurrentPlay]++;
+        GD.Print(" ACTE " + pCurrentPlay + " " +playerHitPerAct[pCurrentPlay]);
+
     }
 }

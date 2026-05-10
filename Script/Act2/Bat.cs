@@ -26,4 +26,12 @@ public partial class Bat : Node2D
         if (pIntruder is Arrow)
             QueueFree();
     }
+
+    public void _on_area_entered(Node2D pIntruder)
+    {
+        if (pIntruder is PlayerCollision pPlayer)
+        {
+            pPlayer.PlayerHit();
+        }
+    }
 }

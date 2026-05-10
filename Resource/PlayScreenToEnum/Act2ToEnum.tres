@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("2_ybvu1")
-playStatus = 3
+playStatus = 4
 playScene = ExtResource("1_83lca")

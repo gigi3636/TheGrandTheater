@@ -18,7 +18,6 @@ public partial class CurrentPlayStatus
         int lStatuId = (int)currentPlayStatus;
         lStatuId++;
         currentPlayStatus = (PlayStatusEnum)lStatuId;
-        GD.Print(currentPlayStatus);
 
         hasPlayedRelatedText = false;
     }

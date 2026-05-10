@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dpvglsmoosick"]
+
+[ext_resource type="Script" path="res://Script/Resource/Progression/ParallaxProgressionDataRes.cs" id="1_rbc4a"]
+
+[resource]
+script = ExtResource("1_rbc4a")
+parallaxScrollingSpeed = Vector2(0, 300)
