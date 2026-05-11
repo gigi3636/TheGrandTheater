@@ -24,10 +24,10 @@ playerControllerRef = NodePath("ParallaxBackground/Player2")
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_g5asr")]
 
 [node name="Player2" parent="ParallaxBackground" instance=ExtResource("2_pxtlm")]
-position = Vector2(106, 1139)
+position = Vector2(444, 501)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="ParallaxBackground"]
-position = Vector2(0, 419)
+position = Vector2(55, -238)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxBackground/StaticBody2D2"]
 position = Vector2(882, 1102)
@@ -35,7 +35,7 @@ shape = SubResource("RectangleShape2D_fn8c4")
 
 [node name="LevelTimer" type="Node2D" parent="."]
 script = ExtResource("4_war4t")
-actDuration = 60.0
+actDuration = 10.0
 intervalDuration = 5.0
 
 [node name="ParallaxMover" type="Node2D" parent="." node_paths=PackedStringArray("parallaxBackgroundRef")]

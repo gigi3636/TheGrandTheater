@@ -4,7 +4,7 @@ using System;
 public partial class PlayerAct1MiniGame : IPlayerAction
 {
     private const float JUMP_FORCE = -1600f;
-    private const float MIN_JUMP_VELOCITY = -600f;
+    private const float MIN_JUMP_VELOCITY = -800f;
     private const float GRAVITY_MULTIPLIER = 5.0f;
 
     private PlayerController playerControllerRef;

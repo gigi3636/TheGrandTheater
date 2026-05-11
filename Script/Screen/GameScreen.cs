@@ -5,6 +5,7 @@ public partial class GameScreen : Screen
 {
     [Export] private GameManager gameManagerRef;
     [Export] private Node2D gameSceneContainerRef;
+    [Export] public PartLoader partLoaderRef {  get; private set; }
     private int currentAct;
 
     public override void LoadScene()

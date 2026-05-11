@@ -17,6 +17,8 @@ public partial class ActeProgressionManager : Node
         foreach(BaseProgressionDataRes pActProgressionAffected  in actProgressionArray)
         {
             pActProgressionAffected.IncreaseDifficulty();
+
         }
+
     }
 }

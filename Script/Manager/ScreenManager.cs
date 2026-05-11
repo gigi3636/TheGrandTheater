@@ -20,6 +20,7 @@ public partial class ScreenManager : Node
     private List<Screen> sceneRefList;
 
     [Export] Node sceneContainerRef;
+    [Export] CurtrainManager curtainRef;
 
     // Info of the current player name and level unlocked
     //[Export] private CurrentPlayerData currentPlayerData;
@@ -53,6 +54,11 @@ public partial class ScreenManager : Node
             lCurentScene.CloseScene();
             lCurentScene.Initialize(this);
             sceneRefList.Add(lCurentScene);
+
+            if (lCurentScene is GameScreen lGameScreen)
+            {
+                curtainRef.Initialize(lGameScreen.partLoaderRef);
+            }
         }
 
         sceneRefList[1].LoadScene();

@@ -19,7 +19,7 @@ public partial class ObstacleSpawnTimer : Node
     public override void _Ready()
 	{
         spawnTimer = new Timer();
-        spawnTimer.WaitTime = spawnCooldown;
+        spawnTimer.WaitTime = GD.RandRange(spawnMinCooldown, spawnMaxCooldown);
         spawnTimer.OneShot = true;
         AddChild(spawnTimer);
         spawnTimer.Timeout += SpawnTimerFinished;

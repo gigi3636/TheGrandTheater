@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvvu4ht8yqlw2"]
+[gd_scene load_steps=9 format=3 uid="uid://bvvu4ht8yqlw2"]
 
 [ext_resource type="Script" path="res://Script/Manager/ScreenManager.cs" id="1_d4y7x"]
 [ext_resource type="PackedScene" uid="uid://bk1lpovyco54d" path="res://Scene/Screen/TitleScreen.tscn" id="2_6a4ji"]
@@ -7,10 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://whqy4vyon7be" path="res://Scene/Screen/CollectionScreen.tscn" id="4_8lh7x"]
 [ext_resource type="PackedScene" uid="uid://dbxfy0uoe0vq8" path="res://Scene/Screen/HelpScreen.tscn" id="5_qiwq8"]
 [ext_resource type="PackedScene" uid="uid://cfgp4yninwkrg" path="res://Scene/Screen/CreditScreen.tscn" id="6_s750b"]
+[ext_resource type="PackedScene" uid="uid://b6wpbwq4e7jwi" path="res://Scene/Curtain.tscn" id="8_wdlb8"]
 
 [node name="Main" type="Node2D"]
 
-[node name="ScreenManager" type="Node2D" parent="." node_paths=PackedStringArray("sceneContainerRef")]
+[node name="ScreenManager" type="Node2D" parent="." node_paths=PackedStringArray("sceneContainerRef", "curtainRef")]
 script = ExtResource("1_d4y7x")
 sceneSplashScreen = ExtResource("2_luano")
 sceneTitleScreen = ExtResource("2_6a4ji")
@@ -20,5 +21,11 @@ sceneCreditsScreen = ExtResource("6_s750b")
 sceneWinScreen = ExtResource("6_s750b")
 sceneGameScreen = ExtResource("3_xvosk")
 sceneContainerRef = NodePath("../ScreenContainer")
+curtainRef = NodePath("../CanvasLayer/Curtain")
 
 [node name="ScreenContainer" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Curtain" parent="CanvasLayer" node_paths=PackedStringArray("screenManagerRef") instance=ExtResource("8_wdlb8")]
+screenManagerRef = NodePath("../../ScreenManager")

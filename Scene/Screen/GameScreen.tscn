@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhtd757gqojn0"]
+[gd_scene load_steps=16 format=3 uid="uid://bhtd757gqojn0"]
 
 [ext_resource type="Script" path="res://Script/Screen/GameScreen.cs" id="1_3x8lm"]
 [ext_resource type="Script" path="res://Script/Manager/GameManager.cs" id="2_10p7m"]
@@ -14,13 +14,15 @@
 [ext_resource type="Resource" uid="uid://c0jw2k1pvxy05" path="res://Resource/PlayScreenToEnum/Act2EntracteToEnum.tres" id="10_k2iv4"]
 [ext_resource type="Resource" uid="uid://b1orgc0q3e3f4" path="res://Resource/PlayScreenToEnum/Act3ToEnum.tres" id="11_y0qtl"]
 [ext_resource type="Resource" uid="uid://dsugffcey1y4t" path="res://Resource/PlayScreenToEnum/Act3ConclusionToEnum.tres" id="12_28jo8"]
+[ext_resource type="Texture2D" uid="uid://b46pqmudlvvts" path="res://Assets/Capture d'écran 2026-05-11 152712.png" id="15_qgxqa"]
 
-[node name="GameScreen" type="Control" node_paths=PackedStringArray("gameManagerRef", "gameSceneContainerRef")]
+[node name="GameScreen" type="Control" node_paths=PackedStringArray("gameManagerRef", "gameSceneContainerRef", "partLoaderRef")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_3x8lm")
 gameManagerRef = NodePath("GameManager")
 gameSceneContainerRef = NodePath("PlaySceneContainer")
+partLoaderRef = NodePath("PartLoader")
 
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("partLoaderRef")]
 script = ExtResource("2_10p7m")
@@ -47,3 +49,16 @@ offset_bottom = 1039.0
 [node name="TextSignalReceiver" type="Node2D" parent="." node_paths=PackedStringArray("textBubbleRef")]
 script = ExtResource("8_yja0f")
 textBubbleRef = NodePath("../TextBubble")
+
+[node name="CaptureD\'écran2026-05-11152712" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(978, 441)
+scale = Vector2(1.76265, 1.76266)
+texture = ExtResource("15_qgxqa")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D"]
+visible = false
+color = Color(0.266667, 0.0823529, 0.0588235, 1)
+polygon = PackedVector2Array(1527, 195, 1570, 207, 1595, 268, 1633, 338, 1669, 391, 1705, 433, 1752, 491, 1827, 524, 1836, 554, 1802, 616, 1770, 693, 1755, 846, 1796, 846, 1862, 849, 1884, 854, 1926, 868, 1931, -12, 1074, -21, -52, -15, -24, 842, 24, 852, 47, 861, 81, 853, 144, 853, 174, 849, 184, 840, 166, 662, 110, 548, 109, 526, 184, 491, 206, 462, 254, 416, 336, 278, 369, 211, 369, 195, 375, 192, 389, 205, 441, 220, 472, 227, 556, 231, 627, 221, 695, 194, 737, 227, 841, 252, 862, 258, 999, 255, 1059, 250, 1177, 217, 1221, 186, 1242, 201, 1315, 227, 1385, 231, 1466, 226)

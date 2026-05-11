@@ -14,22 +14,25 @@ position = Vector2(-28, -40)
 position = Vector2(16.5, 14)
 shape = SubResource("RectangleShape2D_av5yc")
 
-[node name="ColorRect" type="ColorRect" parent="." index="1"]
+[node name="Node2D" type="Node2D" parent="." index="1"]
+scale = Vector2(1.57283, 1.57283)
+
+[node name="ColorRect" type="ColorRect" parent="Node2D" index="0"]
 offset_left = -28.0
-offset_top = -112.0
+offset_top = -148.0
 offset_right = 39.0
 color = Color(0.856067, 0.856067, 0.856067, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="." index="2"]
-offset_left = -95.0
-offset_top = -99.0
+[node name="ColorRect2" type="ColorRect" parent="Node2D" index="1"]
+offset_left = -50.0
+offset_top = -102.0
 offset_right = -28.0
 offset_bottom = 13.0
 color = Color(0.435193, 0.435192, 0.435192, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="." index="3"]
+[node name="ColorRect3" type="ColorRect" parent="Node2D" index="2"]
 offset_left = 39.0
-offset_top = -100.0
-offset_right = 106.0
+offset_top = -97.0
+offset_right = 64.0
 offset_bottom = 12.0
 color = Color(0.389288, 0.389286, 0.389286, 1)

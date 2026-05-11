@@ -11,6 +11,8 @@ public partial class PartLoader : Node
     [Export] private PlayStatusRes playStatus;
     [Export] private TextSignalReceiver textSignalReceiverRef;
 
+    public event Action PartLoading;
+
     // Dictionary whit Play Status Enum as KEY and packedScene as value
     public Godot.Collections.Dictionary<PlayStatusRes.PlayStatusEnum, PackedScene> playScenes { get; private set; } =
         new Godot.Collections.Dictionary<PlayStatusRes.PlayStatusEnum, PackedScene>();
@@ -41,5 +43,7 @@ public partial class PartLoader : Node
         textSignalReceiverRef.ChangePlayScreen(lScene);
 
         playSceneContainerRef.AddChild(lScene);
+
+        PartLoading?.Invoke();
     }
 }

@@ -15,24 +15,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nqywq")
-textShowerRef = NodePath("CanvasLayer/TextShower")
+textShowerRef = NodePath("CanvasLayer/Node2D/TextShower")
 canvasLayerRef = NodePath("CanvasLayer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
 
-[node name="BubbleTexture" type="Node2D" parent="CanvasLayer"]
+[node name="Node2D" type="Node2D" parent="CanvasLayer"]
+position = Vector2(447, -815)
 
-[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/BubbleTexture"]
+[node name="BubbleTexture" type="Node2D" parent="CanvasLayer/Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/Node2D/BubbleTexture"]
 position = Vector2(8, -58)
 color = Color(0.114897, 0.114897, 0.114897, 1)
 polygon = PackedVector2Array(35, 1739, 133, 1651, 998, 1627, 1055, 1717, 990, 1816, 1039, 1902, 965, 1828, 92, 1843)
 
-[node name="Polygon2D2" type="Polygon2D" parent="CanvasLayer/BubbleTexture"]
+[node name="Polygon2D2" type="Polygon2D" parent="CanvasLayer/Node2D/BubbleTexture"]
 position = Vector2(25, 35)
 scale = Vector2(0.94975, 0.94975)
 polygon = PackedVector2Array(35, 1739, 133, 1651, 998, 1627, 1055, 1717, 990, 1816, 1039, 1902, 965, 1828, 92, 1843)
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="CanvasLayer/Node2D"]
 offset_left = 141.0
 offset_top = 1616.0
 offset_right = 956.0
@@ -43,6 +47,6 @@ Tu as fait tout cela seul ?
 impressionant"
 label_settings = SubResource("LabelSettings_hakrq")
 
-[node name="TextShower" type="Node2D" parent="CanvasLayer" node_paths=PackedStringArray("textLabel")]
+[node name="TextShower" type="Node2D" parent="CanvasLayer/Node2D" node_paths=PackedStringArray("textLabel")]
 script = ExtResource("1_ug2q7")
 textLabel = NodePath("../Label")
