@@ -8,6 +8,11 @@ public partial class ParallaxProgressionDataRes : BaseProgressionDataRes
 
     [Export] public Vector2 parallaxScrollingSpeed { get; private set; }
 
+    override public void Initialize()
+    {
+        GD.Print("");
+    }
+
     override public void IncreaseDifficulty()
     {
         float lSpeed = Math.Abs(parallaxScrollingSpeed.X) + Math.Abs(parallaxScrollingSpeed.Y);

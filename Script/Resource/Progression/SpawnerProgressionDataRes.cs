@@ -3,12 +3,17 @@ using System;
 
 public partial class SpawnerProgressionDataRes : BaseProgressionDataRes
 {
-    private const float SPAWN_INTERVAL_MULTIPLIER = 0.9f;
+    [Export] private float spawnIntervalMultiplier = 0.9f; // Amount reduced at each difficulty increase
+    public float currentSpeedMultiplier { get; private set; }
 
-    [Export] public float enemySpawnTimerDuration { get; private set; }
 
-    override public void IncreaseDifficulty()
+    public override void Initialize()
     {
-        enemySpawnTimerDuration *= SPAWN_INTERVAL_MULTIPLIER;
+        currentSpeedMultiplier = 1.0f;
+    }
+
+    public override void IncreaseDifficulty()
+    {
+        currentSpeedMultiplier *= spawnIntervalMultiplier;
     }
 }

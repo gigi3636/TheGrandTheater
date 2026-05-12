@@ -15,7 +15,7 @@ public partial class EnemySpawner : Node
     public override void _Ready()
     {
         spawnTimer = new Timer();
-        spawnTimer.WaitTime = spawnerProgressionDataRes.enemySpawnTimerDuration;
+        //spawnTimer.WaitTime = spawnerProgressionDataRes.enemySpawnTimerDuration;
         spawnTimer.OneShot = true;
         enemyContainerRef.AddChild(spawnTimer);   
         spawnTimer.Timeout += SpawnEntity;
@@ -29,7 +29,7 @@ public partial class EnemySpawner : Node
         AddChild(lBat);
         lBat.GlobalPosition = spawnPointList[rand.RandiRange(0, spawnPointList.Length-1)].GlobalPosition;
         lBat.Initialize(playerPositionRef.GlobalPosition);
-        spawnTimer.WaitTime = spawnerProgressionDataRes.enemySpawnTimerDuration;
+        //spawnTimer.WaitTime = spawnerProgressionDataRes.enemySpawnTimerDuration;
         spawnTimer.Start();
     }
 }
