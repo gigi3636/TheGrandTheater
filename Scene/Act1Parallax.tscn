@@ -12,7 +12,7 @@
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
 [node name="BackgroundLayer" type="ParallaxLayer" parent="."]
-position = Vector2(-15, -251)
+position = Vector2(7, -29)
 motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(3000, 0)
 
@@ -23,7 +23,7 @@ offset_bottom = 1081.0
 color = Color(0.451843, 0.778004, 0.984482, 1)
 
 [node name="SkyLayer" type="ParallaxLayer" parent="."]
-position = Vector2(-15, -251)
+position = Vector2(7, -29)
 motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(3000, 0)
 
@@ -33,6 +33,7 @@ offset_top = 527.0
 offset_right = 1413.0
 offset_bottom = 1063.0
 color = Color(0.0094632, 0.172509, 0.259316, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="SkyLayer"]
 offset_left = 1529.0
@@ -40,9 +41,10 @@ offset_top = 256.0
 offset_right = 2076.0
 offset_bottom = 1077.0
 color = Color(0.0094632, 0.172509, 0.259316, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="GameContainer" type="ParallaxLayer" parent="."]
-position = Vector2(-15, -251)
+position = Vector2(7, -29)
 
 [node name="ObstacleContainer" type="Node2D" parent="GameContainer"]
 
@@ -56,7 +58,7 @@ position = Vector2(1675, 623)
 position = Vector2(1285, 647)
 
 [node name="FrontLayer" type="ParallaxLayer" parent="."]
-position = Vector2(-15, -251)
+position = Vector2(7, -29)
 motion_scale = Vector2(1.2, 1)
 motion_mirroring = Vector2(3000, 0)
 
@@ -133,7 +135,7 @@ offset_bottom = 1019.0
 color = Color(0.110925, 0.0472274, 0.000817302, 1)
 
 [node name="ObstacleSpawner" type="Node2D" parent="." node_paths=PackedStringArray("groundSpawnPointRef", "flyingSpawnPointRef", "obstacleContainerRef", "obstacleSpawnTimerRef")]
-position = Vector2(-15, -251)
+position = Vector2(7, -29)
 script = ExtResource("3_6bpno")
 singleObstacleSceneRef = ExtResource("3_p74u5")
 doubleObstacleSceneRef = ExtResource("4_h1f3s")
@@ -146,7 +148,7 @@ obstacleSpawnTimerRef = NodePath("../ObstacleSpawnTimer")
 probaFlying = 60.0
 
 [node name="ObstaclerSpawnPoint" type="Node2D" parent="."]
-position = Vector2(-15, -670)
+position = Vector2(7, -448)
 
 [node name="GroudnObstacleSpawnPoint" type="Marker2D" parent="ObstaclerSpawnPoint"]
 position = Vector2(1958, 1302)
@@ -155,7 +157,7 @@ position = Vector2(1958, 1302)
 position = Vector2(2042, 977)
 
 [node name="ObstacleSpawnTimer" type="Node2D" parent="."]
-position = Vector2(-15, -670)
+position = Vector2(7, -448)
 script = ExtResource("7_01rfu")
 spawnMinCooldown = 1.2
 spawnMaxCooldown = 1.6

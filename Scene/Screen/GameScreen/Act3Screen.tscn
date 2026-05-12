@@ -24,15 +24,15 @@ textBubbleScene = ExtResource("2_6gkns")
 playerControllerRef = NodePath("Player")
 
 [node name="Player" parent="." instance=ExtResource("2_oq8h5")]
-position = Vector2(549, 1376)
+position = Vector2(896, 712)
 
 [node name="ColumnMarker" type="Node2D" parent="."]
 
 [node name="ColumnMaxLeft" type="Marker2D" parent="ColumnMarker"]
-position = Vector2(169, 1372)
+position = Vector2(589, 728)
 
 [node name="ColumnMaxRight" type="Marker2D" parent="ColumnMarker"]
-position = Vector2(835, 1379)
+position = Vector2(1252, 737)
 
 [node name="Act3Parallax" parent="." instance=ExtResource("3_j1ql6")]
 
@@ -43,7 +43,7 @@ parallaxProgressionDataRes = ExtResource("6_ui0ig")
 
 [node name="LevelTimer" type="Node2D" parent="."]
 script = ExtResource("7_ghfpj")
-actDuration = 6.0
+actDuration = 30.0
 intervalDuration = 2.0
 
 [node name="ActProgressionManager" type="Node2D" parent="." node_paths=PackedStringArray("levelTimerRef")]

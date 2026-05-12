@@ -2,38 +2,39 @@
 
 [ext_resource type="Texture2D" uid="uid://cg4n3cjapvv1t" path="res://Assets/Capture d'écran 2026-05-11 155805.png" id="1_5itxf"]
 [ext_resource type="Script" path="res://Script/Curtain/CurtrainManager.cs" id="1_wmuy8"]
-[ext_resource type="Texture2D" uid="uid://efp425w22dh0" path="res://Assets/Capture d'écran 2026-05-11 155753.png" id="2_8e55h"]
-[ext_resource type="Texture2D" uid="uid://b0bejrv4rxj8y" path="res://Assets/Capture d'écran 2026-05-11 160639.png" id="3_7tex0"]
+[ext_resource type="Texture2D" uid="uid://bsyrkbxg3byn4" path="res://Assets/corner de rideau.png" id="3_3blnh"]
 [ext_resource type="Script" path="res://Script/Curtain/CurtainMover.cs" id="4_06fos"]
+[ext_resource type="Texture2D" uid="uid://cjyppr0sxy64a" path="res://Assets/bas de scene.png" id="4_yvfrq"]
 
 [node name="Curtain" type="Node2D" node_paths=PackedStringArray("curtainMoverRef")]
 script = ExtResource("1_wmuy8")
 curtainMoverRef = NodePath("CurtainMover")
 
 [node name="CurtainRight" type="Sprite2D" parent="."]
-position = Vector2(2480, 400)
-scale = Vector2(2.52169, 2.52169)
+position = Vector2(2559.08, 449.5)
+scale = Vector2(2.81199, 2.87382)
 texture = ExtResource("1_5itxf")
 
 [node name="CurtainLeft" type="Sprite2D" parent="."]
-position = Vector2(-413, 402)
-scale = Vector2(2.52169, 2.52169)
+position = Vector2(-662.726, 451.5)
+scale = Vector2(2.80266, 2.88013)
 texture = ExtResource("1_5itxf")
 
 [node name="CurtainRightBorder" type="Sprite2D" parent="."]
-position = Vector2(1763, 397)
-texture = ExtResource("2_8e55h")
+position = Vector2(1773.25, 451.75)
+scale = Vector2(0.945624, 1.13535)
+texture = ExtResource("3_3blnh")
 
 [node name="CurtainRLeftBorder" type="Sprite2D" parent="."]
-position = Vector2(166, 386)
+position = Vector2(162.329, 452.775)
 rotation = 3.14159
-scale = Vector2(1, -1)
-texture = ExtResource("2_8e55h")
+scale = Vector2(0.879731, -1.11811)
+texture = ExtResource("3_3blnh")
 
 [node name="CaptureD\'écran2026-05-11160639" type="Sprite2D" parent="."]
-position = Vector2(1010.7, 931.5)
-scale = Vector2(3.20099, 3.35955)
-texture = ExtResource("3_7tex0")
+position = Vector2(861, 987)
+scale = Vector2(2.02247, 2.02247)
+texture = ExtResource("4_yvfrq")
 
 [node name="CurtainMover" type="Node2D" parent="." node_paths=PackedStringArray("LeftCurtainRef", "RightCurtainRef")]
 script = ExtResource("4_06fos")

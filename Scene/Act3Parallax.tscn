@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxpla7ddlo6cd"]
 
 [ext_resource type="Script" path="res://Script/Act1/ObstacleSpawner.cs" id="1_a8tt8"]
-[ext_resource type="PackedScene" uid="uid://cjuc4y35ditu" path="res://Scene/Act3Obstacle.tscn" id="2_m47pq"]
+[ext_resource type="Script" path="res://Script/Act3/TowerObstacleSpawner.cs" id="2_5ll3q"]
 
 [node name="Act3Parallax" type="ParallaxBackground"]
 
@@ -12,12 +12,12 @@ motion_mirroring = Vector2(0, 3000)
 
 [node name="ColorRect" type="ColorRect" parent="BackgroundLayer"]
 offset_top = -1798.0
-offset_right = 1095.0
+offset_right = 1918.0
 offset_bottom = 1709.0
 color = Color(0.451843, 0.778004, 0.984482, 1)
 
 [node name="SkyLayer" type="ParallaxLayer" parent="."]
-position = Vector2(0, 419)
+position = Vector2(417, 439)
 motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(0, 3000)
 
@@ -61,10 +61,8 @@ position = Vector2(0, 419)
 
 [node name="ObstacleContainer" type="Node2D" parent="GameContainer"]
 
-[node name="ObstacleSpawner" type="Node2D" parent="." node_paths=PackedStringArray("obstacleSpawnPointRef", "obstacleContainerRef")]
+[node name="ObstacleSpawner" type="Node2D" parent="." node_paths=PackedStringArray("obstacleContainerRef")]
 script = ExtResource("1_a8tt8")
-obstacleSceneRef = ExtResource("2_m47pq")
-obstacleSpawnPointRef = [NodePath("../ObstacleSpawnPoint/Spawn1"), NodePath("../ObstacleSpawnPoint/Spawn2"), NodePath("../ObstacleSpawnPoint/Spawn3"), NodePath("../ObstacleSpawnPoint/Spawn4")]
 obstacleContainerRef = NodePath("../GameContainer/ObstacleContainer")
 
 [node name="ObstacleSpawnPoint" type="Node2D" parent="."]
@@ -79,4 +77,7 @@ position = Vector2(407, -1098)
 position = Vector2(583, -1067)
 
 [node name="Spawn4" type="Marker2D" parent="ObstacleSpawnPoint"]
-position = Vector2(763, -1122)
+position = Vector2(1179, -1132)
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("2_5ll3q")
