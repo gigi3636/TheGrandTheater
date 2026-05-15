@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://kqqjpu2kn464"]
+
+[ext_resource type="Script" path="res://Script/Resource/Progression/SpawnerProgressionDataRes.cs" id="1_2mgqj"]
+
+[resource]
+script = ExtResource("1_2mgqj")
+spawnIntervalMultiplier = 0.9
+maxSpawnIntervalMultiplier = 0.55

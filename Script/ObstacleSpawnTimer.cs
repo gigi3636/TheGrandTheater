@@ -4,12 +4,11 @@ using System;
 public partial class ObstacleSpawnTimer : Node
 {
     [Export] private float spawnMinCooldown = 1.5f;
-    [Export] private float spawnMaxCooldown = 2f;
+    [Export] private float spawnMaxCooldown = 1.6f;
 
-    [Export] private ParallaxProgressionDataRes progressionData;
+    [Export] private SpawnerProgressionDataRes spawnerProgressionData;
 
     private float spawnCooldown ;
-    private float initialScrollingSpeedX;
 
     public Action OnSpawnTimer;
 
@@ -25,8 +24,6 @@ public partial class ObstacleSpawnTimer : Node
         spawnTimer.Timeout += SpawnTimerFinished;
         spawnTimer.Start();
 
-        // Save the initial speed to compare how much the timer have to be shorter
-        initialScrollingSpeedX = Mathf.Abs(progressionData.parallaxScrollingSpeed.X);
 
     }
 
@@ -34,13 +31,9 @@ public partial class ObstacleSpawnTimer : Node
     {
         OnSpawnTimer?.Invoke();
 
-        float lCurrentMultiplier = 1f;
-        float lCurrentSpeedX = Mathf.Abs(progressionData.parallaxScrollingSpeed.X);
-        lCurrentMultiplier = lCurrentSpeedX / initialScrollingSpeedX;
-
         // Setup new timer range 
-        float lNewMinCooldown = spawnMinCooldown / lCurrentMultiplier;
-        float lNewMaxCooldown = spawnMaxCooldown / lCurrentMultiplier;
+        float lNewMinCooldown = spawnMinCooldown * spawnerProgressionData.currentSpeedMultiplier;
+        float lNewMaxCooldown = spawnMaxCooldown * spawnerProgressionData.currentSpeedMultiplier;
 
         spawnTimer.WaitTime = GD.RandRange(lNewMinCooldown, lNewMaxCooldown);
         spawnTimer.Start();

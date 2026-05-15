@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bfgd3f3qbwca1"]
+[gd_scene load_steps=16 format=3 uid="uid://bfgd3f3qbwca1"]
 
 [ext_resource type="Script" path="res://Script/PlayScreen/GamePlay/Act2Screen.cs" id="1_klsm0"]
 [ext_resource type="PackedScene" uid="uid://bb61vyimkc6i" path="res://Scene/Player.tscn" id="2_t3naf"]
@@ -6,11 +6,12 @@
 [ext_resource type="Script" path="res://Script/Act2/ArrowSpawner.cs" id="4_k5g6j"]
 [ext_resource type="Script" path="res://Script/Act2/TrajectoryShower.cs" id="5_1f15j"]
 [ext_resource type="Resource" uid="uid://bus3mpiyb6pfy" path="res://Resource/Act2/ProjectileConfig.tres" id="6_uqarg"]
-[ext_resource type="Script" path="res://Script/Act2/EnemySpawner.cs" id="7_0rcud"]
+[ext_resource type="Script" path="res://Script/Act2/Act2ObstacleSpawner.cs" id="7_p6wpv"]
 [ext_resource type="PackedScene" uid="uid://b6u7tkphglfb3" path="res://Scene/Bat.tscn" id="8_omggw"]
 [ext_resource type="Script" path="res://Script/Act1/LevelTimer.cs" id="9_i4f7t"]
 [ext_resource type="Script" path="res://Script/Manager/ActeProgressionManager.cs" id="10_fu23s"]
 [ext_resource type="Resource" uid="uid://d0leq1i4eg6rr" path="res://Resource/Act2/Act2SpawnerProgressionData.tres" id="11_0dsl4"]
+[ext_resource type="Script" path="res://Script/ObstacleSpawnTimer.cs" id="12_67n1d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jx3ha"]
 size = Vector2(1924, 314)
@@ -78,13 +79,13 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("playerPositionRef", "spawnPointList", "enemyContainerRef")]
-script = ExtResource("7_0rcud")
+[node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("playerPositionRef", "spawnPointList", "enemyContainerRef", "obstacleSpawnTimerRef")]
+script = ExtResource("7_p6wpv")
 batScene = ExtResource("8_omggw")
 playerPositionRef = NodePath("../Player/PlayerSpawn")
 spawnPointList = [NodePath("../EnemySpawnPoint/BatSpawn"), NodePath("../EnemySpawnPoint/BatSpawn2"), NodePath("../EnemySpawnPoint/BatSpawn7"), NodePath("../EnemySpawnPoint/BatSpawn8"), NodePath("../EnemySpawnPoint/BatSpawn9"), NodePath("../EnemySpawnPoint/BatSpawn10"), NodePath("../EnemySpawnPoint/BatSpawn11"), NodePath("../EnemySpawnPoint/BatSpawn3"), NodePath("../EnemySpawnPoint/BatSpawn4")]
 enemyContainerRef = NodePath("../EnemyContainer")
-spawnerProgressionDataRes = ExtResource("11_0dsl4")
+obstacleSpawnTimerRef = NodePath("../ObstacleSpawnerTimer")
 
 [node name="EnemySpawnPoint" type="Node2D" parent="."]
 
@@ -119,8 +120,8 @@ position = Vector2(2242, 558)
 
 [node name="LevelTimer" type="Node2D" parent="."]
 script = ExtResource("9_i4f7t")
-actDuration = 6.0
-intervalDuration = 1.0
+actDuration = 100.0
+intervalDuration = 5.0
 
 [node name="ActProgressionManager" type="Node2D" parent="." node_paths=PackedStringArray("levelTimerRef")]
 script = ExtResource("10_fu23s")
@@ -134,3 +135,7 @@ offset_top = 808.0
 offset_right = 4698.0
 offset_bottom = 1133.0
 color = Color(0.240673, 0.127151, 0.00323785, 1)
+
+[node name="ObstacleSpawnerTimer" type="Node2D" parent="."]
+script = ExtResource("12_67n1d")
+spawnerProgressionData = ExtResource("11_0dsl4")

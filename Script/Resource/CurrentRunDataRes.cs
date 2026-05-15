@@ -15,7 +15,6 @@ public partial class CurrentRunDataRes : Resource
     {
         if (!playerHitPerAct.ContainsKey(pCurrentPlay)) playerHitPerAct.Add(pCurrentPlay, 0);
         playerHitPerAct[pCurrentPlay]++;
-        GD.Print(" ACTE " + pCurrentPlay + " " +playerHitPerAct[pCurrentPlay]);
 
     }
 }

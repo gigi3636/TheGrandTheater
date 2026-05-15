@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class ObstacleSpawner : Node
+public partial class Act1ObstacleSpawner : BaseSpawner
 {
     // L'utilisation des ExportGroup rend l'inspecteur Godot beaucoup plus lisible.
     [ExportGroup("Obstacle ref")]
@@ -15,7 +15,6 @@ public partial class ObstacleSpawner : Node
     [Export] private Marker2D flyingSpawnPointRef;
 
     [Export] private Node2D obstacleContainerRef;
-    [Export] ObstacleSpawnTimer obstacleSpawnTimerRef;
 
     [ExportGroup("Spawn proba")] //Proba for each type of obstacle
     [Export] private float probaSingle = 40f;
@@ -27,12 +26,11 @@ public partial class ObstacleSpawner : Node
 
     public override void _Ready()
     {
+        base._Ready();
         totalProba = probaSingle + probaDouble + probaTriple + probaFlying;
-        obstacleSpawnTimerRef.OnSpawnTimer += SpawnObstacle;
-
     }
 
-    private void SpawnObstacle()
+    protected override void SpawnObstacle()
     {
         // Determin wich obstacle will be spawned
         float lObstacleId = (float)GD.RandRange(0.0, totalProba);

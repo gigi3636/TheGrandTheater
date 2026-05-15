@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://ddhptnrjjudru"]
 
-[ext_resource type="Script" path="res://Script/Act1/ObstacleSpawner.cs" id="3_6bpno"]
+[ext_resource type="Script" path="res://Script/Act1/Act1ObstacleSpawner.cs" id="2_o2lq2"]
 [ext_resource type="PackedScene" uid="uid://cbxsesox0cprk" path="res://Scene/Obstacle/SingleObstacle.tscn" id="3_p74u5"]
 [ext_resource type="PackedScene" uid="uid://bp2k6v312xl02" path="res://Scene/Obstacle/DoubleObstacle.tscn" id="4_h1f3s"]
 [ext_resource type="PackedScene" uid="uid://86s6445nypeu" path="res://Scene/Act1Obstacle.tscn" id="4_rwt2e"]
 [ext_resource type="PackedScene" uid="uid://cgtgxfineqi5d" path="res://Scene/Obstacle/TripleObstacle.tscn" id="5_qysof"]
 [ext_resource type="PackedScene" uid="uid://h65kjvruy4lq" path="res://Scene/Obstacle/FlyingObstacle.tscn" id="6_g37dr"]
 [ext_resource type="Script" path="res://Script/ObstacleSpawnTimer.cs" id="7_01rfu"]
-[ext_resource type="Resource" uid="uid://b4m0g8glq6xak" path="res://Resource/Act1/Act1ParallaxProgressionData.tres" id="8_20dlu"]
+[ext_resource type="Resource" uid="uid://kqqjpu2kn464" path="res://Resource/Act1/Act1SpawnerProgression.tres" id="9_mkx8r"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
@@ -136,7 +136,7 @@ color = Color(0.110925, 0.0472274, 0.000817302, 1)
 
 [node name="ObstacleSpawner" type="Node2D" parent="." node_paths=PackedStringArray("groundSpawnPointRef", "flyingSpawnPointRef", "obstacleContainerRef", "obstacleSpawnTimerRef")]
 position = Vector2(7, -29)
-script = ExtResource("3_6bpno")
+script = ExtResource("2_o2lq2")
 singleObstacleSceneRef = ExtResource("3_p74u5")
 doubleObstacleSceneRef = ExtResource("4_h1f3s")
 tripleObstacleSceneRef = ExtResource("5_qysof")
@@ -145,7 +145,6 @@ groundSpawnPointRef = NodePath("../ObstaclerSpawnPoint/GroudnObstacleSpawnPoint"
 flyingSpawnPointRef = NodePath("../ObstaclerSpawnPoint/FlyingObstacleSpawnPoint")
 obstacleContainerRef = NodePath("../GameContainer/ObstacleContainer")
 obstacleSpawnTimerRef = NodePath("../ObstacleSpawnTimer")
-probaFlying = 60.0
 
 [node name="ObstaclerSpawnPoint" type="Node2D" parent="."]
 position = Vector2(7, -448)
@@ -159,6 +158,6 @@ position = Vector2(2042, 977)
 [node name="ObstacleSpawnTimer" type="Node2D" parent="."]
 position = Vector2(7, -448)
 script = ExtResource("7_01rfu")
-spawnMinCooldown = 1.2
-spawnMaxCooldown = 1.6
-progressionData = ExtResource("8_20dlu")
+spawnMinCooldown = 1.0
+spawnMaxCooldown = 2.0
+spawnerProgressionData = ExtResource("9_mkx8r")

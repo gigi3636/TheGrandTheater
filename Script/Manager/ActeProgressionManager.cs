@@ -10,7 +10,14 @@ public partial class ActeProgressionManager : Node
     public override void _Ready()
 	{
         levelTimerRef.OnIntervalReached += IncreaseDificulty;
+
+        foreach(BaseProgressionDataRes lProgressionData in actProgressionArray)
+        {
+            lProgressionData.Initialize();
+        }
     }
+
+
 
     private void IncreaseDificulty()
     {

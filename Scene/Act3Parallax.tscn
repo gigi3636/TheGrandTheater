@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxpla7ddlo6cd"]
+[gd_scene load_steps=5 format=3 uid="uid://dxpla7ddlo6cd"]
 
-[ext_resource type="Script" path="res://Script/Act1/ObstacleSpawner.cs" id="1_a8tt8"]
-[ext_resource type="Script" path="res://Script/Act3/TowerObstacleSpawner.cs" id="2_5ll3q"]
+[ext_resource type="PackedScene" uid="uid://cjuc4y35ditu" path="res://Scene/Act3Obstacle.tscn" id="2_2xv42"]
+[ext_resource type="Script" path="res://Script/Act3/Act3ObstacleSpawner.cs" id="2_5ixia"]
+[ext_resource type="Script" path="res://Script/ObstacleSpawnTimer.cs" id="3_6137j"]
+[ext_resource type="Resource" uid="uid://ct65716vf7xqe" path="res://Resource/Act3/Act3SpawnerProgressionData.tres" id="4_q53uh"]
 
 [node name="Act3Parallax" type="ParallaxBackground"]
 
@@ -61,23 +63,27 @@ position = Vector2(0, 419)
 
 [node name="ObstacleContainer" type="Node2D" parent="GameContainer"]
 
-[node name="ObstacleSpawner" type="Node2D" parent="." node_paths=PackedStringArray("obstacleContainerRef")]
-script = ExtResource("1_a8tt8")
-obstacleContainerRef = NodePath("../GameContainer/ObstacleContainer")
+[node name="ObstacleSpawner" type="Node2D" parent="." node_paths=PackedStringArray("spawnPointList", "enemyContainerRef", "obstacleSpawnTimerRef")]
+script = ExtResource("2_5ixia")
+obstacleScene = ExtResource("2_2xv42")
+spawnPointList = [NodePath("../ObstacleSpawnPoint/Spawn1"), NodePath("../ObstacleSpawnPoint/Spawn2"), NodePath("../ObstacleSpawnPoint/Spawn3"), NodePath("../ObstacleSpawnPoint/Spawn4")]
+enemyContainerRef = NodePath("../GameContainer/ObstacleContainer")
+obstacleSpawnTimerRef = NodePath("../ObstacleTimer")
 
 [node name="ObstacleSpawnPoint" type="Node2D" parent="."]
 
 [node name="Spawn1" type="Marker2D" parent="ObstacleSpawnPoint"]
-position = Vector2(260, -1055)
+position = Vector2(630, -1136)
 
 [node name="Spawn2" type="Marker2D" parent="ObstacleSpawnPoint"]
-position = Vector2(407, -1098)
+position = Vector2(788, -1142)
 
 [node name="Spawn3" type="Marker2D" parent="ObstacleSpawnPoint"]
-position = Vector2(583, -1067)
+position = Vector2(953, -1137)
 
 [node name="Spawn4" type="Marker2D" parent="ObstacleSpawnPoint"]
-position = Vector2(1179, -1132)
+position = Vector2(1146, -1143)
 
-[node name="Node2D" type="Node2D" parent="."]
-script = ExtResource("2_5ll3q")
+[node name="ObstacleTimer" type="Node2D" parent="."]
+script = ExtResource("3_6137j")
+spawnerProgressionData = ExtResource("4_q53uh")

@@ -44,7 +44,7 @@ parallaxProgressionDataRes = ExtResource("6_ui0ig")
 [node name="LevelTimer" type="Node2D" parent="."]
 script = ExtResource("7_ghfpj")
 actDuration = 30.0
-intervalDuration = 2.0
+intervalDuration = 5.0
 
 [node name="ActProgressionManager" type="Node2D" parent="." node_paths=PackedStringArray("levelTimerRef")]
 script = ExtResource("7_y0i60")

@@ -7,7 +7,7 @@ public partial class PlayerAct3MiniGame : IPlayerAction
 
     private bool isMovingRight;
     private bool isMoving;
-    private float speed = 200f;
+    private float speed = 600f;
     private Vector2 direction;
     private Marker2D columnMaxLeftRef;
     private Marker2D columnMaxRightRef;

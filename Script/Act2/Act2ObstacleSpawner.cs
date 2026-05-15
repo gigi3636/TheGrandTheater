@@ -1,15 +1,20 @@
 using Godot;
 using System;
 
-public partial class Act2ObstacleSpawner : Node
+public partial class Act2ObstacleSpawner : BaseSpawner
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
+    [Export] private PackedScene batScene;
+    [Export] private Marker2D playerPositionRef;
+    [Export] private Godot.Marker2D[] spawnPointList;
+    [Export] private Node2D enemyContainerRef;
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
+    private RandomNumberGenerator rand = new RandomNumberGenerator();
+
+    protected override void SpawnObstacle()
+    {
+        Bat lBat = (Bat)batScene.Instantiate();
+        enemyContainerRef.AddChild(lBat);
+        lBat.GlobalPosition = spawnPointList[rand.RandiRange(0, spawnPointList.Length-1)].GlobalPosition;
+        lBat.Initialize(playerPositionRef.GlobalPosition);
+    }
 }

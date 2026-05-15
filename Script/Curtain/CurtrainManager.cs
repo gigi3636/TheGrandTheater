@@ -23,7 +23,6 @@ public partial class CurtrainManager : Node
         else curtainMoverRef.CloseCurtain();
 
         isClose = !isClose;
-        GD.Print(isClose);
     }
 
 
